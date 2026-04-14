@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KORCALL — Learn Korean from Real Koreans</title>
+  <title>KOR MEET — Learn Korean from Real Koreans</title>
   <meta name="description" content="1:1 video lessons with native Korean tutors. Not AI. Not textbooks. Real conversations. Join K-culture fans in Thailand, Hong Kong, and Indonesia learning Korean." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://korcall.com/" />
-  <meta property="og:title" content="KORCALL — Learn Korean from Real Koreans" />
+  <meta property="og:url" content="https://kormeet.com/" />
+  <meta property="og:title" content="KOR MEET — Learn Korean from Real Koreans" />
   <meta property="og:description" content="1:1 video lessons with native Korean tutors. K-pop lyrics, K-drama dialogue, real Korean conversations. Join the waitlist for early access pricing." />
-  <meta property="og:image" content="https://korcall.com/og-image.png" />
+  <meta property="og:image" content="https://kormeet.com/og-image.png" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KORCALL — Learn Korean from Real Koreans" />
+  <meta name="twitter:title" content="KOR MEET — Learn Korean from Real Koreans" />
   <meta name="twitter:description" content="1:1 video lessons with native Korean tutors. Not AI. Not textbooks. Real conversations." />
-  <meta name="twitter:image" content="https://korcall.com/og-image.png" />
+  <meta name="twitter:image" content="https://kormeet.com/og-image.png" />
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://korcall.com/" />
+  <link rel="canonical" href="https://kormeet.com/" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,9 +46,9 @@
       --sage:        #7d8f74;
       --sage-light:  #a3b89a;
       --sage-dark:   #5e6e56;
-      --accent:      #c800c4;
-      --accent-soft: #e040de;
-      --accent-glow: rgba(200, 0, 196, 0.18);
+      --accent:      #ffbc3b;
+      --accent-soft: #ffcd6e;
+      --accent-glow: rgba(255, 188, 59, 0.18);
       --cream:       #f7f3ed;
       --cream-dark:  #ede8e0;
       --text-dark:   #3a4035;
@@ -56,6 +56,7 @@
       --text-light:  #8a9183;
       --white:       #ffffff;
       --border:      rgba(125, 143, 116, 0.2);
+      --navy:        #182b45;
 
       --radius-sm:   8px;
       --radius-md:   16px;
@@ -65,7 +66,7 @@
       --shadow-sm:   0 2px 8px rgba(58, 64, 53, 0.06);
       --shadow-md:   0 8px 32px rgba(58, 64, 53, 0.1);
       --shadow-lg:   0 24px 64px rgba(58, 64, 53, 0.14);
-      --shadow-accent: 0 8px 40px rgba(200, 0, 196, 0.25);
+      --shadow-accent: 0 8px 40px rgba(255, 188, 59, 0.25);
 
       --font-head:   'Pretendard', 'Poppins', sans-serif;
       --font-body:   'Poppins', 'Pretendard', sans-serif;
@@ -145,7 +146,7 @@
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-glow);
-      border: 1px solid rgba(200, 0, 196, 0.2);
+      border: 1px solid rgba(255, 188, 59, 0.3);
       padding: 6px 14px;
       border-radius: 100px;
       margin-bottom: 20px;
@@ -195,7 +196,7 @@
       align-items: center;
       gap: 6px;
       background: var(--accent);
-      color: var(--white);
+      color: var(--text-dark);
       font-family: var(--font-body);
       font-size: 13px;
       font-weight: 600;
@@ -206,7 +207,7 @@
     }
 
     .nav-cta:hover {
-      background: var(--accent-soft);
+      background: #ffab08;
       transform: translateY(-1px);
       box-shadow: var(--shadow-accent);
     }
@@ -228,9 +229,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(200, 0, 196, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(255, 188, 59, 0.08) 0%, transparent 60%),
         radial-gradient(ellipse 60% 80% at 20% 80%, rgba(125, 143, 116, 0.12) 0%, transparent 60%),
-        linear-gradient(160deg, #f7f3ed 0%, #ede8e0 50%, #f0ebf7 100%);
+        linear-gradient(135deg, #fcebdf 0%, #d8e0ca 100%);
       z-index: 0;
     }
 
@@ -241,7 +242,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      border: 1px solid rgba(200, 0, 196, 0.08);
+      border: 1px solid rgba(255, 188, 59, 0.1);
       top: -200px;
       right: -200px;
     }
@@ -321,8 +322,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--accent) 0%, #a000a0 100%);
-      color: var(--white);
+      background: var(--accent);
+      color: var(--text-dark);
       font-family: var(--font-body);
       font-size: 15px;
       font-weight: 700;
@@ -331,13 +332,14 @@
       border: none;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 4px 20px rgba(200, 0, 196, 0.3);
+      box-shadow: 0 4px 20px rgba(255, 188, 59, 0.3);
       white-space: nowrap;
     }
 
     .btn-primary:hover {
+      background: #ffab08;
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(200, 0, 196, 0.4);
+      box-shadow: 0 8px 32px rgba(255, 188, 59, 0.4);
     }
 
     .btn-primary:active {
@@ -458,7 +460,7 @@
     }
 
     .vc-screen-student {
-      background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+      background: linear-gradient(135deg, #fef3dc, #fde8b0);
     }
 
     .vc-screen-label {
@@ -523,8 +525,8 @@
       position: absolute;
       top: -16px;
       right: -16px;
-      background: linear-gradient(135deg, var(--accent), #a000a0);
-      color: var(--white);
+      background: var(--accent);
+      color: var(--text-dark);
       font-size: 11px;
       font-weight: 700;
       padding: 8px 14px;
@@ -571,7 +573,7 @@
     }
 
     /* ============================================================
-       WHY KORCALL — BENEFITS
+       WHY KOR MEET — BENEFITS
     ============================================================ */
     .benefits {
       padding: 100px 0;
@@ -730,7 +732,7 @@
     }
 
     .step-card:nth-child(2) .step-number {
-      background: linear-gradient(135deg, var(--accent) 0%, #900090 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #e6a520 100%);
       box-shadow: var(--shadow-accent);
     }
 
@@ -914,7 +916,7 @@
     ============================================================ */
     .waitlist {
       padding: 100px 0;
-      background: linear-gradient(160deg, var(--text-dark) 0%, #1e2a1a 100%);
+      background: linear-gradient(160deg, var(--navy) 0%, #0f1e30 100%);
       position: relative;
       overflow: hidden;
     }
@@ -925,7 +927,7 @@
       width: 700px;
       height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,0,196,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,188,59,0.08) 0%, transparent 70%);
       top: -200px;
       right: -200px;
     }
@@ -951,8 +953,8 @@
     }
 
     .waitlist-left .section-label {
-      background: rgba(200, 0, 196, 0.15);
-      border-color: rgba(200, 0, 196, 0.3);
+      background: rgba(255, 188, 59, 0.15);
+      border-color: rgba(255, 188, 59, 0.35);
     }
 
     .waitlist-title {
@@ -966,7 +968,7 @@
     }
 
     .waitlist-title span {
-      background: linear-gradient(135deg, var(--accent-soft), #ff80ff);
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -997,8 +999,8 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: rgba(200, 0, 196, 0.15);
-      border: 1px solid rgba(200, 0, 196, 0.2);
+      background: rgba(255, 188, 59, 0.15);
+      border: 1px solid rgba(255, 188, 59, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1085,8 +1087,8 @@
 
     .btn-submit {
       width: 100%;
-      background: linear-gradient(135deg, var(--accent) 0%, #a000a0 100%);
-      color: var(--white);
+      background: var(--accent);
+      color: var(--text-dark);
       font-family: var(--font-body);
       font-size: 15px;
       font-weight: 700;
@@ -1095,14 +1097,15 @@
       border: none;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 4px 20px rgba(200, 0, 196, 0.3);
+      box-shadow: 0 4px 20px rgba(255, 188, 59, 0.3);
       margin-top: 8px;
       letter-spacing: 0.01em;
     }
 
     .btn-submit:hover {
+      background: #ffab08;
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(200, 0, 196, 0.45);
+      box-shadow: 0 8px 32px rgba(255, 188, 59, 0.45);
     }
 
     .btn-submit:active {
@@ -1228,7 +1231,7 @@
        FOOTER
     ============================================================ */
     .footer {
-      background: var(--text-dark);
+      background: var(--navy);
       padding: 56px 0 32px;
     }
 
@@ -1278,6 +1281,7 @@
     .social-btn:hover {
       background: var(--accent);
       border-color: var(--accent);
+      color: var(--text-dark);
       transform: translateY(-2px);
     }
 
@@ -1466,7 +1470,7 @@
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-        <a href="#" class="nav-logo" aria-label="KORCALL home">KOR<span>CALL</span></a>
+        <a href="#" class="nav-logo" aria-label="KOR MEET home">KOR<span>MEET</span></a>
         <a href="#waitlist" class="nav-cta" aria-label="Join the waitlist">
           Join Waitlist &rarr;
         </a>
@@ -1580,12 +1584,12 @@
   </div>
 
   <!-- ============================================================
-       SECTION 2: WHY KORCALL
+       SECTION 2: WHY KOR MEET
   ============================================================ -->
-  <section class="benefits" id="why" aria-label="Why KORCALL">
+  <section class="benefits" id="why" aria-label="Why KOR MEET">
     <div class="container">
       <header class="section-header">
-        <p class="section-label reveal" aria-label="Section label">Why KORCALL</p>
+        <p class="section-label reveal" aria-label="Section label">Why KOR MEET</p>
         <h2 class="section-title reveal reveal-delay-1">
           The way you actually<br />want to learn Korean
         </h2>
@@ -1611,7 +1615,7 @@
           <span class="benefit-icon" aria-hidden="true">🇰🇷</span>
           <h3 class="benefit-title">Native Korean Tutors — Verified</h3>
           <p class="benefit-desc">
-            Every KORCALL tutor is a native Korean speaker, background-checked and
+            Every KOR MEET tutor is a native Korean speaker, background-checked and
             trained. Not a language enthusiast. Not an AI. A real Korean who speaks
             Korean as their mother tongue.
           </p>
@@ -1683,7 +1687,7 @@
   <!-- ============================================================
        SECTION 3: HOW IT WORKS
   ============================================================ -->
-  <section class="how" id="how" aria-label="How KORCALL works">
+  <section class="how" id="how" aria-label="How KOR MEET works">
     <div class="container">
       <header class="section-header">
         <p class="section-label reveal" style="margin: 0 auto 20px;">How it works</p>
@@ -1796,7 +1800,7 @@
           <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
           <p class="testimonial-text">
             I've been watching K-dramas for 3 years but never knew how to actually
-            speak the language. My first KORCALL lesson felt like talking to a
+            speak the language. My first KOR MEET lesson felt like talking to a
             friend, not a teacher. I said my first full Korean sentence on day one.
           </p>
           <div class="testimonial-author">
@@ -1812,7 +1816,7 @@
           <div class="testimonial-quote" aria-hidden="true">"</div>
           <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
           <p class="testimonial-text">
-            I tried Duolingo for months but it felt so robotic. KORCALL is
+            I tried Duolingo for months but it felt so robotic. KOR MEET is
             completely different — my tutor uses actual BTS lyrics and scenes from
             My Love from the Star to teach me. I'm actually enjoying learning now.
           </p>
@@ -1830,7 +1834,7 @@
           <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
           <p class="testimonial-text">
             I want to visit Korea next year and actually talk to people there —
-            not just order from a menu. My KORCALL tutor Minji makes every lesson
+            not just order from a menu. My KOR MEET tutor Minji makes every lesson
             feel like a real conversation, not homework. Worth every rupiah.
           </p>
           <div class="testimonial-author">
@@ -1860,7 +1864,7 @@
             Lock in your<br /><span>founding member</span><br />pricing today
           </h2>
           <p class="waitlist-subtitle reveal reveal-delay-2">
-            KORCALL launches soon. Join the waitlist now and get exclusive
+            KOR MEET launches soon. Join the waitlist now and get exclusive
             early-bird pricing — significantly lower than our public launch rate.
             No commitment required.
           </p>
@@ -1905,7 +1909,7 @@
             <input type="hidden" name="utm_campaign" id="f-utm-campaign" />
             <input type="hidden" name="utm_content"  id="f-utm-content" />
             <input type="hidden" name="utm_term"     id="f-utm-term" />
-            <input type="hidden" name="_subject"     value="New KORCALL Waitlist Signup" />
+            <input type="hidden" name="_subject"     value="New KOR MEET Waitlist Signup" />
 
             <div class="form-row">
               <div class="form-group">
@@ -1985,7 +1989,7 @@
             <h3>You're on the list!</h3>
             <p>
               We'll reach out with your early access invite before anyone else.
-              Keep an eye on your inbox — and tell a K-fan friend about KORCALL.
+              Keep an eye on your inbox — and tell a K-fan friend about KOR MEET.
             </p>
           </div>
         </div>
@@ -2001,24 +2005,24 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          <div class="footer-brand">KOR<span>CALL</span></div>
+          <div class="footer-brand">KOR<span>MEET</span></div>
           <p class="footer-tagline">Learn Korean, Live Korean</p>
         </div>
         <div class="footer-social" aria-label="Social media">
-          <a href="#" class="social-btn" aria-label="Follow KORCALL on Instagram">📸</a>
-          <a href="#" class="social-btn" aria-label="Follow KORCALL on TikTok">🎵</a>
-          <a href="#" class="social-btn" aria-label="Follow KORCALL on YouTube">▶️</a>
+          <a href="#" class="social-btn" aria-label="Follow KOR MEET on Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="Follow KOR MEET on TikTok">🎵</a>
+          <a href="#" class="social-btn" aria-label="Follow KOR MEET on YouTube">▶️</a>
         </div>
       </div>
 
       <div class="footer-divider" aria-hidden="true"></div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 KORCALL. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 KOR MEET. All rights reserved.</p>
         <nav class="footer-links" aria-label="Footer links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
-          <a href="mailto:hello@korcall.com">Contact</a>
+          <a href="mailto:hello@kormeet.com">Contact</a>
         </nav>
       </div>
     </div>
