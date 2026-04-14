@@ -1447,6 +1447,143 @@
     }
 
     /* ============================================================
+       FOUNDER STORY SECTION
+    ============================================================ */
+    .story {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .story-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .story-left .section-label {
+      display: inline-flex;
+    }
+
+    .story-title {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+
+    .story-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .story-body p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .story-body strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .story-signoff {
+      margin-top: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      font-family: var(--font-head);
+    }
+
+    .story-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .trust-card {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 28px 28px 28px 24px;
+      border-left: 4px solid var(--sage);
+      transition: var(--transition);
+    }
+
+    .trust-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+
+    .trust-card-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .trust-card-body {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    .trust-card-body strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       LANGUAGE SWITCHER
+    ============================================================ */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: 12px;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-mid);
+      background: transparent;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      line-height: 1;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--sage);
+      color: var(--text-dark);
+      background: var(--cream);
+    }
+
+    .lang-btn.active {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: var(--white);
+    }
+
+    .lang-btn .lang-flag {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* ============================================================
        MISC HELPERS
     ============================================================ */
     .text-center { text-align: center; }
@@ -1458,6 +1595,18 @@
       overflow: hidden;
       clip: rect(0,0,0,0);
       white-space: nowrap;
+    }
+
+    /* Story mobile */
+    @media (max-width: 768px) {
+      .story-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .trust-card:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -1471,9 +1620,22 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#" class="nav-logo" aria-label="KOR MEET home">KOR<span>MEET</span></a>
-        <a href="#waitlist" class="nav-cta" aria-label="Join the waitlist">
-          Join Waitlist &rarr;
-        </a>
+        <div style="display:flex;align-items:center;gap:0;">
+          <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="en" aria-label="Switch to English" aria-pressed="true">
+              <span class="lang-flag">🇬🇧</span> EN
+            </button>
+            <button class="lang-btn" data-lang="th" aria-label="เปลี่ยนเป็นภาษาไทย" aria-pressed="false">
+              <span class="lang-flag">🇹🇭</span> TH
+            </button>
+            <button class="lang-btn" data-lang="id" aria-label="Ganti ke Bahasa Indonesia" aria-pressed="false">
+              <span class="lang-flag">🇮🇩</span> ID
+            </button>
+          </div>
+          <a href="#waitlist" class="nav-cta" aria-label="Join the waitlist" data-i18n="nav_cta">
+            Join Waitlist &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -1491,16 +1653,16 @@
           <p class="hero-hangul" aria-label="Korean phrase: annyeonghaseyo, Hello">
             안녕하세요 &nbsp;·&nbsp; Hello in Korean
           </p>
-          <h1 class="hero-title reveal">
+          <h1 class="hero-title reveal" data-i18n="hero_title">
             Learn Korean<br />from <span class="highlight">Real Koreans</span>
           </h1>
-          <p class="hero-subtitle reveal reveal-delay-1">
+          <p class="hero-subtitle reveal reveal-delay-1" data-i18n="hero_subtitle">
             1:1 video lessons with <strong>native Korean tutors</strong>. Not AI. Not textbooks.
             Real conversations — using K-drama dialogue, K-pop lyrics, and the Korean
             they actually speak every day.
           </p>
           <div class="hero-cta-group reveal reveal-delay-2">
-            <a href="#waitlist" class="btn-primary">
+            <a href="#waitlist" class="btn-primary" data-i18n="hero_cta">
               Join the Waitlist &mdash; Early Access Pricing
             </a>
           </div>
@@ -1511,7 +1673,7 @@
               <div class="hero-avatar">🇮🇩</div>
               <div class="hero-avatar">🇰🇷</div>
             </div>
-            <span>Join <strong>500+</strong> K-culture fans on the waitlist</span>
+            <span data-i18n="hero_social_proof">Join <strong>500+</strong> K-culture fans on the waitlist</span>
           </div>
         </div>
 
@@ -1562,22 +1724,22 @@
       <div class="trust-bar-inner">
         <div class="trust-item">
           <span class="trust-icon" aria-hidden="true">🇰🇷</span>
-          Native Korean tutors only
+          <span data-i18n="trust_native">Native Korean tutors only</span>
         </div>
         <div class="trust-divider" aria-hidden="true"></div>
         <div class="trust-item">
           <span class="trust-icon" aria-hidden="true">🎬</span>
-          K-drama &amp; K-pop curriculum
+          <span data-i18n="trust_curriculum">K-drama &amp; K-pop curriculum</span>
         </div>
         <div class="trust-divider" aria-hidden="true"></div>
         <div class="trust-item">
           <span class="trust-icon" aria-hidden="true">📅</span>
-          Your timezone, your schedule
+          <span data-i18n="trust_schedule">Your timezone, your schedule</span>
         </div>
         <div class="trust-divider" aria-hidden="true"></div>
         <div class="trust-item">
           <span class="trust-icon" aria-hidden="true">💬</span>
-          Real conversation from Day 1
+          <span data-i18n="trust_conversation">Real conversation from Day 1</span>
         </div>
       </div>
     </div>
@@ -1589,11 +1751,11 @@
   <section class="benefits" id="why" aria-label="Why KOR MEET">
     <div class="container">
       <header class="section-header">
-        <p class="section-label reveal" aria-label="Section label">Why KOR MEET</p>
-        <h2 class="section-title reveal reveal-delay-1">
+        <p class="section-label reveal" aria-label="Section label" data-i18n="benefits_label">Why KOR MEET</p>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="benefits_title">
           The way you actually<br />want to learn Korean
         </h2>
-        <p class="section-subtitle reveal reveal-delay-2">
+        <p class="section-subtitle reveal reveal-delay-2" data-i18n="benefits_subtitle">
           Not stiff textbook grammar. Real Korean — the language of K-dramas, K-pop,
           and everyday Seoul life.
         </p>
@@ -1603,8 +1765,8 @@
 
         <div class="benefit-card featured reveal">
           <span class="benefit-icon" aria-hidden="true">🎬</span>
-          <h3 class="benefit-title">Learn the Korean They Actually Speak</h3>
-          <p class="benefit-desc">
+          <h3 class="benefit-title" data-i18n="benefit1_title">Learn the Korean They Actually Speak</h3>
+          <p class="benefit-desc" data-i18n="benefit1_desc">
             Skip the outdated textbook Korean. Your tutor teaches you real dialogue
             from K-dramas you love, slang you hear in K-pop, and expressions that
             make Koreans say "wow, you sound natural."
@@ -1613,8 +1775,8 @@
 
         <div class="benefit-card reveal reveal-delay-1">
           <span class="benefit-icon" aria-hidden="true">🇰🇷</span>
-          <h3 class="benefit-title">Native Korean Tutors — Verified</h3>
-          <p class="benefit-desc">
+          <h3 class="benefit-title" data-i18n="benefit2_title">Native Korean Tutors — Verified</h3>
+          <p class="benefit-desc" data-i18n="benefit2_desc">
             Every KOR MEET tutor is a native Korean speaker, background-checked and
             trained. Not a language enthusiast. Not an AI. A real Korean who speaks
             Korean as their mother tongue.
@@ -1623,8 +1785,8 @@
 
         <div class="benefit-card reveal reveal-delay-2">
           <span class="benefit-icon" aria-hidden="true">💜</span>
-          <h3 class="benefit-title">K-Culture Immersion Learning</h3>
-          <p class="benefit-desc">
+          <h3 class="benefit-title" data-i18n="benefit3_title">K-Culture Immersion Learning</h3>
+          <p class="benefit-desc" data-i18n="benefit3_desc">
             Your love for K-pop and K-dramas is your superpower. Lessons built around
             BTS lyrics, Squid Game scenes, Korean memes, and cultural nuance that
             no app can teach you.
@@ -1633,8 +1795,8 @@
 
         <div class="benefit-card reveal reveal-delay-3">
           <span class="benefit-icon" aria-hidden="true">🌏</span>
-          <h3 class="benefit-title">Flexible — Made for Southeast Asia</h3>
-          <p class="benefit-desc">
+          <h3 class="benefit-title" data-i18n="benefit4_title">Flexible — Made for Southeast Asia</h3>
+          <p class="benefit-desc" data-i18n="benefit4_desc">
             Morning in Bangkok, evening in Jakarta, afternoon in Hong Kong — lessons
             that fit your life. Book, reschedule, or cancel anytime. No rigid
             contracts or hidden fees.
@@ -1650,7 +1812,7 @@
   ============================================================ -->
   <section class="hangul-section" aria-label="Korean vocabulary showcase">
     <div class="container text-center" style="margin-bottom: 36px;">
-      <p class="section-label reveal" style="margin: 0 auto 0;">Words you'll learn on Day 1</p>
+      <p class="section-label reveal" style="margin: 0 auto 0;" data-i18n="hangul_label">Words you'll learn on Day 1</p>
     </div>
     <div class="hangul-marquee-wrap" aria-hidden="true">
       <div class="hangul-marquee">
@@ -1690,11 +1852,11 @@
   <section class="how" id="how" aria-label="How KOR MEET works">
     <div class="container">
       <header class="section-header">
-        <p class="section-label reveal" style="margin: 0 auto 20px;">How it works</p>
-        <h2 class="section-title reveal reveal-delay-1">
+        <p class="section-label reveal" style="margin: 0 auto 20px;" data-i18n="how_label">How it works</p>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="how_title">
           From zero to Korean<br />in 3 simple steps
         </h2>
-        <p class="section-subtitle reveal reveal-delay-2">
+        <p class="section-subtitle reveal reveal-delay-2" data-i18n="how_subtitle">
           No complicated onboarding. Start speaking Korean in your very first lesson.
         </p>
       </header>
@@ -1705,8 +1867,8 @@
           <div class="step-number" aria-label="Step 1">1</div>
           <div>
             <span class="step-icon" aria-hidden="true">✍️</span>
-            <h3 class="step-title">Sign up &amp; tell us your level</h3>
-            <p class="step-desc">
+            <h3 class="step-title" data-i18n="step1_title">Sign up &amp; tell us your level</h3>
+            <p class="step-desc" data-i18n="step1_desc">
               Complete beginner who only knows "oppa"? Already reading Hangul?
               Tell us where you are, and we'll match you with the right tutor
               and learning path.
@@ -1718,8 +1880,8 @@
           <div class="step-number" aria-label="Step 2">2</div>
           <div>
             <span class="step-icon" aria-hidden="true">🤝</span>
-            <h3 class="step-title">Match with your perfect tutor</h3>
-            <p class="step-desc">
+            <h3 class="step-title" data-i18n="step2_title">Match with your perfect tutor</h3>
+            <p class="step-desc" data-i18n="step2_desc">
               Browse verified native Korean tutors. Filter by personality, teaching
               style, and specialty (K-pop, K-drama, travel, business). Preview
               intro videos before you book.
@@ -1731,8 +1893,8 @@
           <div class="step-number" aria-label="Step 3">3</div>
           <div>
             <span class="step-icon" aria-hidden="true">🎤</span>
-            <h3 class="step-title">Start speaking Korean — lesson 1</h3>
-            <p class="step-desc">
+            <h3 class="step-title" data-i18n="step3_title">Start speaking Korean — lesson 1</h3>
+            <p class="step-desc" data-i18n="step3_desc">
               Your first lesson starts with real conversation. No boring intro slides.
               Your tutor adapts to your pace, your interests, and the K-content
               you already love.
@@ -1745,13 +1907,74 @@
   </section>
 
   <!-- ============================================================
+       SECTION 3.5: FOUNDER STORY
+  ============================================================ -->
+  <section class="story" id="story" aria-label="Our Story">
+    <div class="container">
+      <div class="story-inner">
+
+        <!-- Left: The Story -->
+        <div class="story-left">
+          <p class="section-label reveal" data-i18n="story_label">Our Story</p>
+          <h2 class="story-title reveal reveal-delay-1" data-i18n="story_title">Why I Built KOR MEET</h2>
+
+          <div class="story-body">
+            <p class="reveal reveal-delay-1" data-i18n="story_p1">
+              A few years ago, I was traveling through Southeast Asia — Bangkok, Jakarta, Ho Chi Minh City. Everywhere I went, I kept meeting people who were obsessed with Korean culture. They could sing along to every BTS song, quote their favorite K-drama lines, and dreamed of visiting Korea.
+            </p>
+            <p class="reveal reveal-delay-2" data-i18n="story_p2">
+              But when I asked if they were learning Korean, the answer was always the same: "I tried, but there's no good way to practice with real Koreans." Apps felt robotic. Textbooks were boring. And the big tutoring platforms? Too generic, too expensive, no Korean focus.
+            </p>
+            <p class="reveal reveal-delay-2" data-i18n="story_p3">
+              That hit me — because I'd already solved this problem, just in the other direction. For <strong>over 8 years</strong>, I've been running an English tutoring platform where Korean students learn from native English speakers through 1:1 video calls. Thousands of lessons. A proven system.
+            </p>
+            <p class="reveal reveal-delay-3" data-i18n="story_p4">
+              So I flipped it. Same proven system. Same quality standards. Same technology. Just the other way around. KOR MEET is Korean lessons built by someone who actually knows how language teaching works — because I've been doing it for <strong>almost a decade</strong>.
+            </p>
+            <p class="story-signoff reveal reveal-delay-3" data-i18n="story_signoff">
+              👋 — TJ, Founder of KOR MEET
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Trust Cards -->
+        <div class="story-right">
+
+          <div class="trust-card reveal reveal-delay-1">
+            <h3 class="trust-card-title" data-i18n="trust_card1_title">🛡️ Is This Legit?</h3>
+            <p class="trust-card-body" data-i18n="trust_card1_body">
+              Worried this is just another random startup? Don't be. I've been running a language education business for <strong>8+ years</strong> with thousands of students. KOR MEET is built on the same proven infrastructure.
+            </p>
+          </div>
+
+          <div class="trust-card reveal reveal-delay-2">
+            <h3 class="trust-card-title" data-i18n="trust_card2_title">💯 100% Money-Back Guarantee</h3>
+            <p class="trust-card-body" data-i18n="trust_card2_body">
+              Not satisfied after your first lesson? <strong>Full refund</strong>. No questions asked. No fine print. We're that confident you'll love it.
+            </p>
+          </div>
+
+          <div class="trust-card reveal reveal-delay-3">
+            <h3 class="trust-card-title" data-i18n="trust_card3_title">🎓 Verified Native Tutors</h3>
+            <p class="trust-card-body" data-i18n="trust_card3_body">
+              Every KOR MEET tutor is a verified native Korean speaker. No non-native teachers pretending to be Korean. We personally vet every single tutor.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SECTION 4: SOCIAL PROOF
   ============================================================ -->
   <section class="proof" id="proof" aria-label="Social proof and testimonials">
     <div class="container">
       <header class="section-header">
-        <p class="section-label reveal" style="margin: 0 auto 20px;">Community</p>
-        <h2 class="section-title reveal reveal-delay-1">
+        <p class="section-label reveal" style="margin: 0 auto 20px;" data-i18n="proof_label">Community</p>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="proof_title">
           K-fans across Asia are<br />already learning Korean
         </h2>
       </header>
@@ -1760,15 +1983,15 @@
       <div class="proof-stats">
         <div class="stat-card reveal">
           <div class="stat-number"><span>500</span>+</div>
-          <div class="stat-label">Waitlist members</div>
+          <div class="stat-label" data-i18n="stat1_label">Waitlist members</div>
         </div>
         <div class="stat-card reveal reveal-delay-1">
           <div class="stat-number"><span>3</span></div>
-          <div class="stat-label">Countries &amp; growing</div>
+          <div class="stat-label" data-i18n="stat2_label">Countries &amp; growing</div>
         </div>
         <div class="stat-card reveal reveal-delay-2">
           <div class="stat-number"><span>100</span>%</div>
-          <div class="stat-label">Native Korean tutors</div>
+          <div class="stat-label" data-i18n="stat3_label">Native Korean tutors</div>
         </div>
       </div>
 
@@ -1798,7 +2021,7 @@
         <div class="testimonial-card reveal">
           <div class="testimonial-quote" aria-hidden="true">"</div>
           <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
-          <p class="testimonial-text">
+          <p class="testimonial-text" data-i18n="testimonial1_text">
             I've been watching K-dramas for 3 years but never knew how to actually
             speak the language. My first KOR MEET lesson felt like talking to a
             friend, not a teacher. I said my first full Korean sentence on day one.
@@ -1815,7 +2038,7 @@
         <div class="testimonial-card reveal reveal-delay-1">
           <div class="testimonial-quote" aria-hidden="true">"</div>
           <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
-          <p class="testimonial-text">
+          <p class="testimonial-text" data-i18n="testimonial2_text">
             I tried Duolingo for months but it felt so robotic. KOR MEET is
             completely different — my tutor uses actual BTS lyrics and scenes from
             My Love from the Star to teach me. I'm actually enjoying learning now.
@@ -1832,7 +2055,7 @@
         <div class="testimonial-card reveal reveal-delay-2">
           <div class="testimonial-quote" aria-hidden="true">"</div>
           <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
-          <p class="testimonial-text">
+          <p class="testimonial-text" data-i18n="testimonial3_text">
             I want to visit Korea next year and actually talk to people there —
             not just order from a menu. My KOR MEET tutor Minji makes every lesson
             feel like a real conversation, not homework. Worth every rupiah.
@@ -1859,11 +2082,11 @@
 
         <!-- Left: pitch -->
         <div class="waitlist-left">
-          <p class="section-label reveal">Early Access — Limited Spots</p>
-          <h2 class="waitlist-title reveal reveal-delay-1">
+          <p class="section-label reveal" data-i18n="waitlist_label">Early Access — Limited Spots</p>
+          <h2 class="waitlist-title reveal reveal-delay-1" data-i18n="waitlist_title">
             Lock in your<br /><span>founding member</span><br />pricing today
           </h2>
-          <p class="waitlist-subtitle reveal reveal-delay-2">
+          <p class="waitlist-subtitle reveal reveal-delay-2" data-i18n="waitlist_subtitle">
             KOR MEET launches soon. Join the waitlist now and get exclusive
             early-bird pricing — significantly lower than our public launch rate.
             No commitment required.
@@ -1872,27 +2095,27 @@
           <div class="waitlist-perks reveal reveal-delay-3">
             <div class="perk-item">
               <div class="perk-icon" aria-hidden="true">🏷️</div>
-              Founding member pricing — locked for life
+              <span data-i18n="perk1">Founding member pricing — locked for life</span>
             </div>
             <div class="perk-item">
               <div class="perk-icon" aria-hidden="true">⚡</div>
-              Priority access before public launch
+              <span data-i18n="perk2">Priority access before public launch</span>
             </div>
             <div class="perk-item">
               <div class="perk-icon" aria-hidden="true">🎁</div>
-              Free first trial lesson (waitlist members only)
+              <span data-i18n="perk3">Free first trial lesson (waitlist members only)</span>
             </div>
             <div class="perk-item">
               <div class="perk-icon" aria-hidden="true">💬</div>
-              Direct input into which tutors we onboard
+              <span data-i18n="perk4">Direct input into which tutors we onboard</span>
             </div>
           </div>
         </div>
 
         <!-- Right: form -->
         <div class="waitlist-form-wrap reveal reveal-delay-1">
-          <h3 class="form-title">Join the Waitlist 🇰🇷</h3>
-          <p class="form-subtitle">Takes 60 seconds. No payment required.</p>
+          <h3 class="form-title" data-i18n="form_title">Join the Waitlist 🇰🇷</h3>
+          <p class="form-subtitle" data-i18n="form_subtitle">Takes 60 seconds. No payment required.</p>
 
           <!-- The form posts to Google Forms (prefilled entry IDs are placeholders) -->
           <!-- Formspree is set as the action for reliability -->
@@ -1913,19 +2136,20 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="f-name">Name</label>
+                <label class="form-label" for="f-name" data-i18n="label_name">Name</label>
                 <input
                   class="form-input"
                   type="text"
                   id="f-name"
                   name="name"
                   placeholder="Your name"
+                  data-i18n-placeholder="placeholder_name"
                   required
                   autocomplete="name"
                 />
               </div>
               <div class="form-group">
-                <label class="form-label" for="f-email">Email</label>
+                <label class="form-label" for="f-email" data-i18n="label_email">Email</label>
                 <input
                   class="form-input"
                   type="email"
@@ -1939,45 +2163,45 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="f-country">Your Country</label>
+              <label class="form-label" for="f-country" data-i18n="label_country">Your Country</label>
               <select class="form-select" id="f-country" name="country" required>
-                <option value="" disabled selected>Select your country</option>
+                <option value="" disabled selected data-i18n="option_country_default">Select your country</option>
                 <option value="Thailand">🇹🇭 Thailand</option>
                 <option value="Hong Kong">🇭🇰 Hong Kong</option>
                 <option value="Indonesia">🇮🇩 Indonesia</option>
-                <option value="Other">🌏 Other</option>
+                <option value="Other" data-i18n="option_other">🌏 Other</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="f-level">Your Korean Level</label>
+              <label class="form-label" for="f-level" data-i18n="label_level">Your Korean Level</label>
               <select class="form-select" id="f-level" name="korean_level" required>
-                <option value="" disabled selected>Select your level</option>
-                <option value="complete_beginner">Complete Beginner — never studied Korean</option>
-                <option value="kdrama_words">Know some words from K-dramas</option>
-                <option value="can_read_hangul">Can read Hangul, limited vocab</option>
-                <option value="intermediate">Intermediate — can hold basic conversations</option>
-                <option value="advanced">Advanced — want to sound more natural</option>
+                <option value="" disabled selected data-i18n="option_level_default">Select your level</option>
+                <option value="complete_beginner" data-i18n="level_beginner">Complete Beginner — never studied Korean</option>
+                <option value="kdrama_words" data-i18n="level_kdrama">Know some words from K-dramas</option>
+                <option value="can_read_hangul" data-i18n="level_hangul">Can read Hangul, limited vocab</option>
+                <option value="intermediate" data-i18n="level_intermediate">Intermediate — can hold basic conversations</option>
+                <option value="advanced" data-i18n="level_advanced">Advanced — want to sound more natural</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="f-reason">Why do you want to learn Korean?</label>
+              <label class="form-label" for="f-reason" data-i18n="label_reason">Why do you want to learn Korean?</label>
               <select class="form-select" id="f-reason" name="motivation" required>
-                <option value="" disabled selected>Select your reason</option>
-                <option value="kpop_kdrama">K-pop / K-drama fan</option>
-                <option value="travel">Planning to travel to Korea</option>
-                <option value="work_business">Work or business purposes</option>
-                <option value="study">Studying in Korea</option>
-                <option value="other">Other</option>
+                <option value="" disabled selected data-i18n="option_reason_default">Select your reason</option>
+                <option value="kpop_kdrama" data-i18n="reason_kpop">K-pop / K-drama fan</option>
+                <option value="travel" data-i18n="reason_travel">Planning to travel to Korea</option>
+                <option value="work_business" data-i18n="reason_work">Work or business purposes</option>
+                <option value="study" data-i18n="reason_study">Studying in Korea</option>
+                <option value="other" data-i18n="reason_other">Other</option>
               </select>
             </div>
 
-            <button type="submit" class="btn-submit" id="submit-btn">
+            <button type="submit" class="btn-submit" id="submit-btn" data-i18n="btn_submit">
               Join the Waitlist 🇰🇷
             </button>
 
-            <p class="form-disclaimer">
+            <p class="form-disclaimer" data-i18n="form_disclaimer">
               No spam, ever. We'll only email you about your waitlist status
               and launch updates. Unsubscribe anytime.
             </p>
@@ -1986,8 +2210,8 @@
           <!-- Success state -->
           <div class="form-success" id="form-success" role="status" aria-live="polite">
             <div class="form-success-icon">🎉</div>
-            <h3>You're on the list!</h3>
-            <p>
+            <h3 data-i18n="success_title">You're on the list!</h3>
+            <p data-i18n="success_body">
               We'll reach out with your early access invite before anyone else.
               Keep an eye on your inbox — and tell a K-fan friend about KOR MEET.
             </p>
@@ -2006,7 +2230,7 @@
       <div class="footer-inner">
         <div>
           <div class="footer-brand">KOR<span>MEET</span></div>
-          <p class="footer-tagline">Learn Korean, Live Korean</p>
+          <p class="footer-tagline" data-i18n="footer_tagline">Learn Korean, Live Korean</p>
         </div>
         <div class="footer-social" aria-label="Social media">
           <a href="#" class="social-btn" aria-label="Follow KOR MEET on Instagram">📸</a>
@@ -2018,7 +2242,7 @@
       <div class="footer-divider" aria-hidden="true"></div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 KOR MEET. All rights reserved.</p>
+        <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 KOR MEET. All rights reserved.</p>
         <nav class="footer-links" aria-label="Footer links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -2040,19 +2264,399 @@
     window.addEventListener('scroll', onScroll, { passive: true });
 
     // ── Scroll-reveal (Intersection Observer) ───────────────────
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
+    function initReveal() {
+      const revealEls = document.querySelectorAll('.reveal:not(.visible)');
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+    }
+    initReveal();
+
+    // ── TRANSLATIONS ─────────────────────────────────────────────
+    const translations = {
+      en: {
+        nav_cta: 'Join Waitlist →',
+
+        hero_title: 'Learn Korean<br />from <span class="highlight">Real Koreans</span>',
+        hero_subtitle: '1:1 video lessons with <strong>native Korean tutors</strong>. Not AI. Not textbooks. Real conversations — using K-drama dialogue, K-pop lyrics, and the Korean they actually speak every day.',
+        hero_cta: 'Join the Waitlist — Early Access Pricing',
+        hero_social_proof: 'Join <strong>500+</strong> K-culture fans on the waitlist',
+
+        trust_native: 'Native Korean tutors only',
+        trust_curriculum: 'K-drama &amp; K-pop curriculum',
+        trust_schedule: 'Your timezone, your schedule',
+        trust_conversation: 'Real conversation from Day 1',
+
+        benefits_label: 'Why KOR MEET',
+        benefits_title: 'The way you actually<br />want to learn Korean',
+        benefits_subtitle: 'Not stiff textbook grammar. Real Korean — the language of K-dramas, K-pop, and everyday Seoul life.',
+        benefit1_title: 'Learn the Korean They Actually Speak',
+        benefit1_desc: 'Skip the outdated textbook Korean. Your tutor teaches you real dialogue from K-dramas you love, slang you hear in K-pop, and expressions that make Koreans say "wow, you sound natural."',
+        benefit2_title: 'Native Korean Tutors — Verified',
+        benefit2_desc: 'Every KOR MEET tutor is a native Korean speaker, background-checked and trained. Not a language enthusiast. Not an AI. A real Korean who speaks Korean as their mother tongue.',
+        benefit3_title: 'K-Culture Immersion Learning',
+        benefit3_desc: 'Your love for K-pop and K-dramas is your superpower. Lessons built around BTS lyrics, Squid Game scenes, Korean memes, and cultural nuance that no app can teach you.',
+        benefit4_title: 'Flexible — Made for Southeast Asia',
+        benefit4_desc: 'Morning in Bangkok, evening in Jakarta, afternoon in Hong Kong — lessons that fit your life. Book, reschedule, or cancel anytime. No rigid contracts or hidden fees.',
+
+        hangul_label: "Words you'll learn on Day 1",
+
+        how_label: 'How it works',
+        how_title: 'From zero to Korean<br />in 3 simple steps',
+        how_subtitle: 'No complicated onboarding. Start speaking Korean in your very first lesson.',
+        step1_title: 'Sign up &amp; tell us your level',
+        step1_desc: 'Complete beginner who only knows "oppa"? Already reading Hangul? Tell us where you are, and we\'ll match you with the right tutor and learning path.',
+        step2_title: 'Match with your perfect tutor',
+        step2_desc: 'Browse verified native Korean tutors. Filter by personality, teaching style, and specialty (K-pop, K-drama, travel, business). Preview intro videos before you book.',
+        step3_title: 'Start speaking Korean — lesson 1',
+        step3_desc: 'Your first lesson starts with real conversation. No boring intro slides. Your tutor adapts to your pace, your interests, and the K-content you already love.',
+
+        story_label: 'Our Story',
+        story_title: 'Why I Built KOR MEET',
+        story_p1: 'A few years ago, I was traveling through Southeast Asia — Bangkok, Jakarta, Ho Chi Minh City. Everywhere I went, I kept meeting people who were obsessed with Korean culture. They could sing along to every BTS song, quote their favorite K-drama lines, and dreamed of visiting Korea.',
+        story_p2: 'But when I asked if they were learning Korean, the answer was always the same: "I tried, but there\'s no good way to practice with real Koreans." Apps felt robotic. Textbooks were boring. And the big tutoring platforms? Too generic, too expensive, no Korean focus.',
+        story_p3: 'That hit me — because I\'d already solved this problem, just in the other direction. For <strong>over 8 years</strong>, I\'ve been running an English tutoring platform where Korean students learn from native English speakers through 1:1 video calls. Thousands of lessons. A proven system.',
+        story_p4: 'So I flipped it. Same proven system. Same quality standards. Same technology. Just the other way around. KOR MEET is Korean lessons built by someone who actually knows how language teaching works — because I\'ve been doing it for <strong>almost a decade</strong>.',
+        story_signoff: '👋 — TJ, Founder of KOR MEET',
+        trust_card1_title: '🛡️ Is This Legit?',
+        trust_card1_body: 'Worried this is just another random startup? Don\'t be. I\'ve been running a language education business for <strong>8+ years</strong> with thousands of students. KOR MEET is built on the same proven infrastructure.',
+        trust_card2_title: '💯 100% Money-Back Guarantee',
+        trust_card2_body: 'Not satisfied after your first lesson? <strong>Full refund</strong>. No questions asked. No fine print. We\'re that confident you\'ll love it.',
+        trust_card3_title: '🎓 Verified Native Tutors',
+        trust_card3_body: 'Every KOR MEET tutor is a verified native Korean speaker. No non-native teachers pretending to be Korean. We personally vet every single tutor.',
+
+        proof_label: 'Community',
+        proof_title: 'K-fans across Asia are<br />already learning Korean',
+        stat1_label: 'Waitlist members',
+        stat2_label: 'Countries &amp; growing',
+        stat3_label: 'Native Korean tutors',
+
+        testimonial1_text: 'I\'ve been watching K-dramas for 3 years but never knew how to actually speak the language. My first KOR MEET lesson felt like talking to a friend, not a teacher. I said my first full Korean sentence on day one.',
+        testimonial2_text: 'I tried Duolingo for months but it felt so robotic. KOR MEET is completely different — my tutor uses actual BTS lyrics and scenes from My Love from the Star to teach me. I\'m actually enjoying learning now.',
+        testimonial3_text: 'I want to visit Korea next year and actually talk to people there — not just order from a menu. My KOR MEET tutor Minji makes every lesson feel like a real conversation, not homework. Worth every rupiah.',
+
+        waitlist_label: 'Early Access — Limited Spots',
+        waitlist_title: 'Lock in your<br /><span>founding member</span><br />pricing today',
+        waitlist_subtitle: 'KOR MEET launches soon. Join the waitlist now and get exclusive early-bird pricing — significantly lower than our public launch rate. No commitment required.',
+        perk1: 'Founding member pricing — locked for life',
+        perk2: 'Priority access before public launch',
+        perk3: 'Free first trial lesson (waitlist members only)',
+        perk4: 'Direct input into which tutors we onboard',
+
+        form_title: 'Join the Waitlist 🇰🇷',
+        form_subtitle: 'Takes 60 seconds. No payment required.',
+        label_name: 'Name',
+        label_email: 'Email',
+        label_country: 'Your Country',
+        label_level: 'Your Korean Level',
+        label_reason: 'Why do you want to learn Korean?',
+        placeholder_name: 'Your name',
+        option_country_default: 'Select your country',
+        option_other: '🌏 Other',
+        option_level_default: 'Select your level',
+        level_beginner: 'Complete Beginner — never studied Korean',
+        level_kdrama: 'Know some words from K-dramas',
+        level_hangul: 'Can read Hangul, limited vocab',
+        level_intermediate: 'Intermediate — can hold basic conversations',
+        level_advanced: 'Advanced — want to sound more natural',
+        option_reason_default: 'Select your reason',
+        reason_kpop: 'K-pop / K-drama fan',
+        reason_travel: 'Planning to travel to Korea',
+        reason_work: 'Work or business purposes',
+        reason_study: 'Studying in Korea',
+        reason_other: 'Other',
+        btn_submit: 'Join the Waitlist 🇰🇷',
+        form_disclaimer: "No spam, ever. We'll only email you about your waitlist status and launch updates. Unsubscribe anytime.",
+
+        success_title: "You're on the list!",
+        success_body: "We'll reach out with your early access invite before anyone else. Keep an eye on your inbox — and tell a K-fan friend about KOR MEET.",
+
+        footer_tagline: 'Learn Korean, Live Korean',
+        footer_copy: '© 2026 KOR MEET. All rights reserved.',
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    revealEls.forEach((el) => revealObserver.observe(el));
+
+      th: {
+        nav_cta: 'จองที่นั่ง →',
+
+        hero_title: 'เรียนภาษาเกาหลี<br />จาก<span class="highlight">คนเกาหลีตัวจริง</span>',
+        hero_subtitle: 'เรียนผ่านวิดีโอคอล 1:1 กับ<strong>ติวเตอร์เจ้าของภาษาเกาหลี</strong> ไม่ใช่ AI ไม่ใช่ตำรา แต่เป็นการสนทนาจริง — ผ่านบทพูดจาก K-drama เนื้อเพลง K-pop และภาษาที่คนเกาหลีใช้จริงๆ ทุกวัน',
+        hero_cta: 'จองคิวก่อนเปิดตัว — ราคา Early Access',
+        hero_social_proof: 'ร่วมกับ <strong>500+</strong> แฟน K-culture ที่จองที่นั่งแล้ว',
+
+        trust_native: 'ติวเตอร์เจ้าของภาษาเกาหลีเท่านั้น',
+        trust_curriculum: 'หลักสูตร K-drama &amp; K-pop',
+        trust_schedule: 'เรียนตามเวลาของคุณ ไม่มีบังคับ',
+        trust_conversation: 'พูดจริงตั้งแต่ชั่วโมงแรก',
+
+        benefits_label: 'ทำไมต้อง KOR MEET',
+        benefits_title: 'วิธีเรียนภาษาเกาหลี<br />ที่คุณอยากเรียนจริงๆ',
+        benefits_subtitle: 'ไม่ใช่ไวยากรณ์จากตำรา แต่เป็นภาษาเกาหลีแบบที่ใช้ใน K-drama, K-pop และชีวิตประจำวันในกรุงโซล',
+        benefit1_title: 'เรียนภาษาเกาหลีที่คนเกาหลีใช้จริง',
+        benefit1_desc: 'ลืมตำราเก่าๆ ไปได้เลย ติวเตอร์จะสอนบทพูดจาก K-drama ที่คุณชอบ สแลงจาก K-pop และสำนวนที่ทำให้คนเกาหลีพูดว่า "โอ้โห ฟังดูเป็นธรรมชาติมาก"',
+        benefit2_title: 'ติวเตอร์เจ้าของภาษา — ตรวจสอบแล้ว',
+        benefit2_desc: 'ติวเตอร์ KOR MEET ทุกคนเป็นเจ้าของภาษาเกาหลี ผ่านการตรวจสอบประวัติและอบรมแล้ว ไม่ใช่แค่คนที่ชอบภาษา ไม่ใช่ AI แต่เป็นคนเกาหลีที่ใช้ภาษาเกาหลีเป็นภาษาแม่',
+        benefit3_title: 'เรียนรู้ผ่านวัฒนธรรม K-culture แบบดื่มด่ำ',
+        benefit3_desc: 'ความรักที่มีต่อ K-pop และ K-drama คือพลังพิเศษของคุณ บทเรียนสร้างจากเนื้อเพลง BTS, ฉากจาก Squid Game, มีม เกาหลี และความละเอียดอ่อนทางวัฒนธรรมที่ไม่มีแอปไหนสอนได้',
+        benefit4_title: 'ยืดหยุ่น — ออกแบบมาสำหรับคนในเอเชียตะวันออกเฉียงใต้',
+        benefit4_desc: 'เช้าที่กรุงเทพฯ เย็นที่จาการ์ตา บ่ายที่ฮ่องกง — บทเรียนที่เข้ากับชีวิตคุณ จองได้ เลื่อนได้ ยกเลิกได้ตลอด ไม่มีสัญญาผูกมัดหรือค่าใช้จ่ายแอบแฝง',
+
+        hangul_label: 'คำที่คุณจะเรียนในวันแรก',
+
+        how_label: 'วิธีเริ่มต้น',
+        how_title: 'จากศูนย์สู่การพูดเกาหลี<br />ใน 3 ขั้นตอนง่ายๆ',
+        how_subtitle: 'ไม่มีขั้นตอนยุ่งยาก เริ่มพูดเกาหลีได้ตั้งแต่บทเรียนแรก',
+        step1_title: 'สมัครสมาชิกและบอกระดับของคุณ',
+        step1_desc: 'เป็นมือใหม่ที่รู้แค่คำว่า "오빠 (อ็อปป้า)" ไหม? หรืออ่านอักษรฮันกึลได้แล้ว? บอกเราและเราจะจับคู่กับติวเตอร์และแผนการเรียนที่เหมาะสม',
+        step2_title: 'จับคู่กับติวเตอร์ที่ใช่สำหรับคุณ',
+        step2_desc: 'เลือกดูติวเตอร์เจ้าของภาษาที่ผ่านการตรวจสอบแล้ว กรองตามบุคลิก สไตล์การสอน และความเชี่ยวชาญ (K-pop, K-drama, ท่องเที่ยว, ธุรกิจ) ดูวิดีโอแนะนำตัวก่อนจอง',
+        step3_title: 'เริ่มพูดเกาหลี — บทเรียนที่ 1',
+        step3_desc: 'บทเรียนแรกเริ่มจากการสนทนาจริงเลย ไม่มีสไลด์น่าเบื่อ ติวเตอร์ปรับตามจังหวะ ความสนใจ และ K-content ที่คุณชื่นชอบอยู่แล้ว',
+
+        story_label: 'เรื่องของเรา',
+        story_title: 'ทำไมฉันถึงสร้าง KOR MEET',
+        story_p1: 'เมื่อไม่กี่ปีก่อน ฉันเดินทางในเอเชียตะวันออกเฉียงใต้ — กรุงเทพฯ จาการ์ตา โฮจิมินห์ซิตี้ ทุกที่ที่ไป ฉันเจอคนที่หลงใหลวัฒนธรรมเกาหลีตลอด พวกเขาร้องเพลง BTS ได้ทุกเพลง อ้างบทพูดจาก K-drama ได้ และฝันอยากไปเที่ยวเกาหลี',
+        story_p2: 'แต่พอถามว่าเรียนภาษาเกาหลีอยู่ไหม คำตอบก็เหมือนกันหมด: "เคยลองแล้ว แต่ไม่มีทางที่ดีพอในการฝึกกับคนเกาหลีจริงๆ" แอปรู้สึกเหมือนหุ่นยนต์ ตำราน่าเบื่อ แพลตฟอร์มติวเตอร์ใหญ่ๆ? ทั่วไปเกินไป แพงเกินไป ไม่มีการโฟกัสที่เกาหลี',
+        story_p3: 'นั่นทำให้ฉันคิดได้ — เพราะฉันแก้ปัญหานี้ไปแล้ว แค่อีกทิศทางหนึ่ง มานานกว่า <strong>8 ปีแล้ว</strong> ที่ฉันรันแพลตฟอร์มสอนภาษาอังกฤษที่นักเรียนเกาหลีเรียนกับเจ้าของภาษาอังกฤษผ่านวิดีโอคอล 1:1 นับพันบทเรียน ระบบที่ผ่านการพิสูจน์แล้ว',
+        story_p4: 'ฉันเลยพลิกมัน ระบบเดิม มาตรฐานเดิม เทคโนโลยีเดิม แค่กลับด้าน KOR MEET คือบทเรียนภาษาเกาหลีที่สร้างโดยคนที่รู้จริงว่าการสอนภาษาทำงานอย่างไร — เพราะฉันทำมาเกือบ<strong>สิบปีแล้ว</strong>',
+        story_signoff: '👋 — TJ, ผู้ก่อตั้ง KOR MEET',
+        trust_card1_title: '🛡️ แน่ใจได้เลยว่าน่าเชื่อถือ',
+        trust_card1_body: 'กังวลว่าจะเป็นแค่สตาร์ทอัปทั่วๆ ไปอีกเจ้าไหม? ไม่ต้องกังวลเลย ฉันรันธุรกิจการศึกษาด้านภาษามากกว่า <strong>8 ปี</strong> กับนักเรียนนับพันคน KOR MEET สร้างบนโครงสร้างพื้นฐานที่พิสูจน์แล้วชุดเดิม',
+        trust_card2_title: '💯 รับประกันคืนเงิน 100%',
+        trust_card2_body: 'ไม่พอใจหลังบทเรียนแรก? <strong>คืนเงินเต็มจำนวน</strong> ไม่ถามเหตุผล ไม่มีเงื่อนไขซ่อนเร้น เราเชื่อมั่นมากพอว่าคุณจะชอบ',
+        trust_card3_title: '🎓 ติวเตอร์เจ้าของภาษาที่ผ่านการตรวจสอบ',
+        trust_card3_body: 'ติวเตอร์ KOR MEET ทุกคนเป็นเจ้าของภาษาเกาหลีที่ผ่านการตรวจสอบแล้ว ไม่มีครูที่ไม่ใช่เจ้าของภาษาแกล้งทำเป็นคนเกาหลี เราคัดกรองติวเตอร์ทุกคนด้วยตัวเอง',
+
+        proof_label: 'ชุมชนของเรา',
+        proof_title: 'แฟนๆ K-culture ทั่วเอเชีย<br />กำลังเรียนภาษาเกาหลีแล้ว',
+        stat1_label: 'คนจองคิวแล้ว',
+        stat2_label: 'ประเทศและกำลังขยาย',
+        stat3_label: 'ติวเตอร์เจ้าของภาษา',
+
+        testimonial1_text: 'ดู K-drama มา 3 ปีแล้วแต่ไม่เคยรู้จะพูดภาษาเกาหลีจริงๆ ได้ยังไง บทเรียนแรกของ KOR MEET รู้สึกเหมือนคุยกับเพื่อน ไม่ใช่ครู พูดประโยคเกาหลีเต็มๆ ได้ตั้งแต่วันแรก',
+        testimonial2_text: 'ลอง Duolingo มาหลายเดือนแต่รู้สึกเหมือนหุ่นยนต์ตลอด KOR MEET ต่างกันโดยสิ้นเชิง — ติวเตอร์ใช้เนื้อเพลง BTS จริงๆ และฉากจาก My Love from the Star มาสอน ตอนนี้สนุกกับการเรียนจริงๆ แล้ว',
+        testimonial3_text: 'อยากไปเที่ยวเกาหลีปีหน้าแล้วอยากคุยกับคนที่นั่นได้จริงๆ ไม่ใช่แค่สั่งอาหาร ติวเตอร์ Minji ของฉันทำให้ทุกบทเรียนรู้สึกเหมือนสนทนาจริง ไม่ใช่การบ้าน คุ้มค่ามากๆ',
+
+        waitlist_label: 'Early Access — ที่นั่งจำกัด',
+        waitlist_title: 'ล็อคราคา<br /><span>สมาชิกผู้ก่อตั้ง</span><br />วันนี้',
+        waitlist_subtitle: 'KOR MEET จะเปิดตัวเร็วๆ นี้ จองคิวตอนนี้เพื่อรับราคา early-bird พิเศษ — ต่ำกว่าราคาเปิดตัวสาธารณะมาก ไม่มีข้อผูกมัด',
+        perk1: 'ราคาสมาชิกผู้ก่อตั้ง — ล็อคตลอดชีพ',
+        perk2: 'สิทธิ์เข้าถึงก่อนใครก่อนเปิดตัวสาธารณะ',
+        perk3: 'บทเรียนทดลองฟรีบทแรก (เฉพาะสมาชิกจองคิว)',
+        perk4: 'มีสิทธิ์เลือกว่าอยากได้ติวเตอร์แบบไหน',
+
+        form_title: 'จองคิวของคุณ 🇰🇷',
+        form_subtitle: 'ใช้เวลาแค่ 60 วินาที ไม่ต้องชำระเงิน',
+        label_name: 'ชื่อ',
+        label_email: 'อีเมล',
+        label_country: 'ประเทศของคุณ',
+        label_level: 'ระดับภาษาเกาหลีของคุณ',
+        label_reason: 'ทำไมคุณถึงอยากเรียนภาษาเกาหลี?',
+        placeholder_name: 'ชื่อของคุณ',
+        option_country_default: 'เลือกประเทศ',
+        option_other: '🌏 อื่นๆ',
+        option_level_default: 'เลือกระดับ',
+        level_beginner: 'มือใหม่ทั้งหมด — ยังไม่เคยเรียนเลย',
+        level_kdrama: 'รู้คำศัพท์บ้างจาก K-drama',
+        level_hangul: 'อ่านอักษรฮันกึลได้ แต่คำศัพท์น้อย',
+        level_intermediate: 'ระดับกลาง — พูดสนทนาเบื้องต้นได้',
+        level_advanced: 'ขั้นสูง — อยากให้ฟังดูเป็นธรรมชาติมากขึ้น',
+        option_reason_default: 'เลือกเหตุผล',
+        reason_kpop: 'แฟน K-pop / K-drama',
+        reason_travel: 'กำลังวางแผนท่องเที่ยวเกาหลี',
+        reason_work: 'ด้านงานหรือธุรกิจ',
+        reason_study: 'กำลังเรียนที่เกาหลี',
+        reason_other: 'อื่นๆ',
+        btn_submit: 'จองคิวของฉัน 🇰🇷',
+        form_disclaimer: 'ไม่มีสแปมแน่นอน เราจะส่งอีเมลเฉพาะเรื่องสถานะการจองและข้อมูลเปิดตัวเท่านั้น ยกเลิกได้ตลอด',
+
+        success_title: 'คุณอยู่ในรายชื่อแล้ว!',
+        success_body: 'เราจะติดต่อกลับพร้อมลิงก์ early access ก่อนใคร คอยเช็กกล่องจดหมาย — และบอกเพื่อนที่ชอบ K-culture ด้วยนะ',
+
+        footer_tagline: 'เรียนเกาหลี ใช้ชีวิตแบบเกาหลี',
+        footer_copy: '© 2026 KOR MEET. สงวนลิขสิทธิ์ทั้งหมด',
+      },
+
+      id: {
+        nav_cta: 'Daftar Waitlist →',
+
+        hero_title: 'Belajar Bahasa Korea<br />dari <span class="highlight">Orang Korea Asli</span>',
+        hero_subtitle: 'Les video 1:1 dengan <strong>tutor asli Korea</strong>. Bukan AI. Bukan buku teks. Percakapan nyata — pakai dialog K-drama, lirik K-pop, dan bahasa Korea yang mereka pakai sehari-hari.',
+        hero_cta: 'Daftar Waitlist — Harga Early Access',
+        hero_social_proof: 'Bergabung dengan <strong>500+</strong> fans K-culture yang sudah daftar',
+
+        trust_native: 'Tutor asli Korea only',
+        trust_curriculum: 'Kurikulum K-drama &amp; K-pop',
+        trust_schedule: 'Sesuai zona waktu &amp; jadwal kamu',
+        trust_conversation: 'Langsung ngobrol dari hari pertama',
+
+        benefits_label: 'Kenapa KOR MEET',
+        benefits_title: 'Cara belajar bahasa Korea<br />yang kamu mau banget',
+        benefits_subtitle: 'Bukan grammar buku yang kaku. Bahasa Korea yang asli — bahasa K-drama, K-pop, dan kehidupan sehari-hari di Seoul.',
+        benefit1_title: 'Belajar Bahasa Korea yang Orang Korea Pakai Beneran',
+        benefit1_desc: 'Skip buku teks jadul. Tutor kamu ngajarin dialog nyata dari K-drama favoritmu, slang dari K-pop, dan ungkapan yang bikin orang Korea bilang "wah, kamu kedengarannya natural banget."',
+        benefit2_title: 'Tutor Asli Korea — Sudah Diverifikasi',
+        benefit2_desc: 'Semua tutor KOR MEET adalah penutur asli bahasa Korea, sudah dicek background-nya dan dilatih. Bukan sekadar penggemar bahasa. Bukan AI. Orang Korea beneran yang pakai bahasa Korea sebagai bahasa ibu.',
+        benefit3_title: 'Belajar Sambil Menyelami K-Culture',
+        benefit3_desc: 'Cintamu pada K-pop dan K-drama adalah kekuatan terbesarmu. Pelajaran dibangun dari lirik BTS, adegan Squid Game, meme Korea, dan nuansa budaya yang nggak ada aplikasi yang bisa ngajarin.',
+        benefit4_title: 'Fleksibel — Dibuat untuk Asia Tenggara',
+        benefit4_desc: 'Pagi di Bangkok, sore di Jakarta, siang di Hong Kong — les yang sesuai hidupmu. Booking, reschedule, atau cancel kapan saja. Nggak ada kontrak ketat atau biaya tersembunyi.',
+
+        hangul_label: 'Kata-kata yang kamu pelajari di hari pertama',
+
+        how_label: 'Cara kerjanya',
+        how_title: 'Dari nol sampai lancar Korea<br />dalam 3 langkah mudah',
+        how_subtitle: 'Nggak ribet. Langsung ngobrol bahasa Korea dari les pertama.',
+        step1_title: 'Daftar &amp; ceritain levelmu',
+        step1_desc: 'Pemula banget yang cuma tau "oppa"? Atau sudah bisa baca Hangul? Ceritain kondisimu, dan kita yang cocokkan dengan tutor dan jalur belajar yang pas.',
+        step2_title: 'Match sama tutor yang klik',
+        step2_desc: 'Browse tutor asli Korea yang sudah diverifikasi. Filter berdasarkan kepribadian, gaya mengajar, dan spesialisasi (K-pop, K-drama, traveling, bisnis). Preview video perkenalan sebelum booking.',
+        step3_title: 'Mulai ngobrol Korea — les pertama',
+        step3_desc: 'Les pertamamu langsung mulai dengan percakapan nyata. Nggak ada slide membosankan. Tutormu menyesuaikan dengan paceму, minatmu, dan K-content yang sudah kamu suka.',
+
+        story_label: 'Cerita Kami',
+        story_title: 'Kenapa Aku Bikin KOR MEET',
+        story_p1: 'Beberapa tahun lalu, aku lagi keliling Asia Tenggara — Bangkok, Jakarta, Ho Chi Minh City. Di mana-mana, aku selalu ketemu orang yang gila-gilaan sama budaya Korea. Mereka hafal semua lagu BTS, bisa ngutip dialog K-drama favorit mereka, dan ngimpi banget pengen ke Korea.',
+        story_p2: 'Tapi waktu aku tanya apa mereka lagi belajar bahasa Korea, jawabannya selalu sama: "Pernah nyoba, tapi nggak ada cara yang bagus buat latihan sama orang Korea asli." Aplikasi rasanya kayak robot. Buku teks membosankan. Platform les besar? Terlalu umum, terlalu mahal, nggak ada fokus Korea.',
+        story_p3: 'Itu langsung nyambung di kepalaku — karena aku sudah selesain masalah ini, cuma dari arah sebaliknya. Selama lebih dari <strong>8 tahun</strong>, aku udah jalanin platform les bahasa Inggris tempat siswa Korea belajar dari penutur asli Inggris lewat video call 1:1. Ribuan les. Sistem yang sudah terbukti.',
+        story_p4: 'Jadi aku balik-balikin. Sistem yang sama. Standar kualitas yang sama. Teknologi yang sama. Cuma dibalik arahnya. KOR MEET adalah les bahasa Korea yang dibangun oleh orang yang beneran ngerti cara kerja pengajaran bahasa — karena aku udah lakuin itu hampir <strong>satu dekade</strong>.',
+        story_signoff: '👋 — TJ, Founder KOR MEET',
+        trust_card1_title: '🛡️ Ini Legit Nggak?',
+        trust_card1_body: 'Khawatir ini cuma startup asal-asalan? Nggak perlu. Aku udah jalanin bisnis pendidikan bahasa selama <strong>8+ tahun</strong> dengan ribuan siswa. KOR MEET dibangun di atas infrastruktur yang sudah terbukti sama.',
+        trust_card2_title: '💯 Garansi Uang Kembali 100%',
+        trust_card2_body: 'Nggak puas setelah les pertama? <strong>Uang kembali penuh</strong>. Nggak ada pertanyaan. Nggak ada syarat tersembunyi. Kita segitu yakinnya kamu bakal suka.',
+        trust_card3_title: '🎓 Tutor Asli yang Terverifikasi',
+        trust_card3_body: 'Semua tutor KOR MEET adalah penutur asli Korea yang sudah diverifikasi. Nggak ada guru non-native yang pura-pura orang Korea. Kita seleksi setiap tutor secara langsung.',
+
+        proof_label: 'Komunitas',
+        proof_title: 'Fans K-culture se-Asia<br />sudah mulai belajar Korea',
+        stat1_label: 'Anggota waitlist',
+        stat2_label: 'Negara &amp; terus berkembang',
+        stat3_label: 'Tutor asli Korea',
+
+        testimonial1_text: 'Udah 3 tahun nonton K-drama tapi nggak pernah tau cara ngomong bahasanya. Les pertama KOR MEET rasanya kayak ngobrol sama teman, bukan guru. Aku udah bisa bilang kalimat Korea lengkap di hari pertama.',
+        testimonial2_text: 'Nyoba Duolingo berbulan-bulan tapi rasanya kayak robot terus. KOR MEET beda banget — tutorku pakai lirik BTS asli dan adegan dari My Love from the Star buat ngajarin aku. Sekarang aku beneran enjoy belajarnya.',
+        testimonial3_text: 'Aku pengen ke Korea tahun depan dan bisa ngobrol sama orang di sana — bukan cuma pesan makanan. Tutor KOR MEET-ku si Minji bikin setiap les kayak obrolan nyata, bukan PR. Worth banget!',
+
+        waitlist_label: 'Early Access — Tempat Terbatas',
+        waitlist_title: 'Kunci hargamu<br /><span>sebagai founding member</span><br />sekarang',
+        waitlist_subtitle: 'KOR MEET segera launching. Daftar waitlist sekarang dan dapatkan harga early-bird eksklusif — jauh lebih murah dari harga rilis publik. Tanpa komitmen.',
+        perk1: 'Harga founding member — dikunci selamanya',
+        perk2: 'Akses prioritas sebelum launch publik',
+        perk3: 'Les percobaan pertama gratis (khusus anggota waitlist)',
+        perk4: 'Ikut menentukan tutor yang kita rekrut',
+
+        form_title: 'Daftar Waitlist 🇰🇷',
+        form_subtitle: 'Cuma 60 detik. Nggak perlu bayar.',
+        label_name: 'Nama',
+        label_email: 'Email',
+        label_country: 'Negaramu',
+        label_level: 'Level Bahasa Koreamu',
+        label_reason: 'Kenapa kamu mau belajar bahasa Korea?',
+        placeholder_name: 'Nama kamu',
+        option_country_default: 'Pilih negaramu',
+        option_other: '🌏 Lainnya',
+        option_level_default: 'Pilih levelmu',
+        level_beginner: 'Pemula Banget — belum pernah belajar sama sekali',
+        level_kdrama: 'Tau beberapa kata dari K-drama',
+        level_hangul: 'Bisa baca Hangul, kosakata masih terbatas',
+        level_intermediate: 'Menengah — bisa ngobrol dasar',
+        level_advanced: 'Lanjutan — mau kedengarannya lebih natural',
+        option_reason_default: 'Pilih alasanmu',
+        reason_kpop: 'Fans K-pop / K-drama',
+        reason_travel: 'Mau jalan-jalan ke Korea',
+        reason_work: 'Urusan kerja atau bisnis',
+        reason_study: 'Lagi kuliah di Korea',
+        reason_other: 'Lainnya',
+        btn_submit: 'Daftar Waitlist 🇰🇷',
+        form_disclaimer: 'Nggak ada spam. Kita cuma email soal status waitlist dan update launch. Bisa unsubscribe kapan saja.',
+
+        success_title: 'Kamu sudah masuk daftar!',
+        success_body: 'Kita bakal hubungi kamu dengan undangan early access sebelum siapa pun. Pantau terus inbox-mu — dan ajak teman fans K-culture kamu juga ya!',
+
+        footer_tagline: 'Belajar Korea, Hidup Ala Korea',
+        footer_copy: '© 2026 KOR MEET. Semua hak dilindungi.',
+      }
+    };
+
+    // ── Language Switcher ────────────────────────────────────────
+    function getLang() {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang && translations[urlLang]) return urlLang;
+      const stored = localStorage.getItem('kormeet_lang');
+      if (stored && translations[stored]) return stored;
+      return 'en';
+    }
+
+    function applyTranslation(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      // Translate all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          el.innerHTML = t[key];
+        }
+      });
+
+      // Translate placeholder attributes
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key] !== undefined) {
+          el.setAttribute('placeholder', t[key]);
+        }
+      });
+
+      // Update active lang button UI
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        const isActive = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      // Update html lang attribute for accessibility
+      document.documentElement.setAttribute('lang', lang === 'th' ? 'th' : lang === 'id' ? 'id' : 'en');
+
+      // Persist
+      localStorage.setItem('kormeet_lang', lang);
+
+      // Sync URL param without reload so analytics can track
+      const url = new URL(window.location.href);
+      if (lang === 'en') {
+        url.searchParams.delete('lang');
+      } else {
+        url.searchParams.set('lang', lang);
+      }
+      window.history.replaceState({}, '', url.toString());
+
+      // Fire GA event for language switch
+      if (typeof gtag === 'function') {
+        gtag('event', 'language_switch', { language: lang });
+      }
+    }
+
+    // Wire up language buttons
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        applyTranslation(lang);
+        // Re-init reveal for any new elements (story section etc.)
+        initReveal();
+      });
+    });
+
+    // Apply language on page load
+    applyTranslation(getLang());
 
     // ── UTM parameter reading ────────────────────────────────────
     (function readUtm() {
