@@ -2864,7 +2864,7 @@
     (function fetchWaitlistCount() {
       const countEl = document.getElementById('waitlist-count');
       if (!countEl) return;
-      fetch('https://soo-edu.com/api/v1/marketing/waitlist/count?project=kormeet')
+      fetch('https://center.soo-edu.com/api/v1/marketing/waitlist/count?project=kormeet')
         .then(function(res) { return res.ok ? res.json() : null; })
         .then(function(data) {
           if (data && typeof data.count === 'number') {
@@ -2925,7 +2925,7 @@
 
       let res;
       try {
-        res = await fetch('https://soo-edu.com/api/v1/marketing/waitlist', {
+        res = await fetch('https://center.soo-edu.com/api/v1/marketing/waitlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
