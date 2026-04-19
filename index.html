@@ -29,13 +29,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP66CTS7S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-QHP66CTS7S');
   </script>
 
   <style>
@@ -90,7 +90,13 @@
 
     body {
       font-family: var(--font-body);
-      background: var(--cream);
+      background:
+        linear-gradient(180deg, rgba(247, 243, 237, 0.56) 0%, rgba(247, 243, 237, 0.36) 24%, rgba(247, 243, 237, 0.28) 58%, rgba(247, 243, 237, 0.46) 100%),
+        url('assets/images/page-korean-ambient-v2.png');
+      background-size: auto, cover;
+      background-position: center, center 42%;
+      background-repeat: no-repeat;
+      background-attachment: scroll, fixed;
       color: var(--text-dark);
       line-height: 1.6;
       overflow-x: hidden;
@@ -229,9 +235,13 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(255, 188, 59, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(125, 143, 116, 0.12) 0%, transparent 60%),
-        linear-gradient(135deg, #fcebdf 0%, #d8e0ca 100%);
+        linear-gradient(135deg, rgba(252, 235, 223, 0.9) 0%, rgba(216, 224, 202, 0.82) 100%),
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(255, 188, 59, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(125, 143, 116, 0.14) 0%, transparent 60%),
+        url('assets/images/hero-korean-bg.png');
+      background-size: auto, auto, auto, cover;
+      background-position: center, center, center, 72% center;
+      background-repeat: no-repeat;
       z-index: 0;
     }
 
@@ -373,166 +383,114 @@
 
     .hero-avatar:first-child { margin-left: 0; }
 
-    /* Video call mockup */
     .hero-visual {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
     }
 
-    .video-call-card {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      padding: 24px;
-      box-shadow: var(--shadow-lg);
+    .hero-photo-wrap {
+      position: relative;
       width: 100%;
-      max-width: 380px;
+      max-width: 540px;
+      padding: 18px 0 28px 34px;
+    }
+
+    .hero-photo-frame {
       position: relative;
-    }
-
-    .video-call-card::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: calc(var(--radius-xl) + 2px);
-      background: linear-gradient(135deg, var(--accent), var(--sage-light));
-      z-index: -1;
-      opacity: 0.3;
-    }
-
-    .vc-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .vc-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--sage-dark);
-    }
-
-    .vc-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #4caf50;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.2); }
-    }
-
-    .vc-timer {
-      font-size: 12px;
-      color: var(--text-light);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .vc-screens {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .vc-screen {
-      border-radius: var(--radius-md);
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 36px;
-      position: relative;
+      border-radius: 34px;
+      padding: 14px;
+      background: rgba(255,255,255,0.74);
+      box-shadow: 0 28px 70px rgba(58, 64, 53, 0.16);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform: rotate(-2.2deg);
       overflow: hidden;
     }
 
-    .vc-screen-tutor {
-      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-    }
-
-    .vc-screen-student {
-      background: linear-gradient(135deg, #fef3dc, #fde8b0);
-    }
-
-    .vc-screen-label {
+    .hero-photo-frame::before {
+      content: '';
       position: absolute;
-      bottom: 8px;
-      left: 8px;
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--text-mid);
-      background: rgba(255,255,255,0.85);
-      padding: 2px 8px;
-      border-radius: 100px;
-      backdrop-filter: blur(4px);
+      inset: 0;
+      background:
+        linear-gradient(140deg, rgba(255,255,255,0.26), transparent 48%),
+        linear-gradient(180deg, transparent 60%, rgba(24,43,69,0.08) 100%);
+      pointer-events: none;
     }
 
-    .vc-caption {
-      background: linear-gradient(135deg, var(--accent-glow), rgba(125,143,116,0.08));
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      margin-bottom: 16px;
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(58, 64, 53, 0.12);
     }
 
-    .vc-caption-ko {
-      font-family: var(--font-head);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 2px;
-    }
-
-    .vc-caption-en {
-      font-size: 11px;
-      color: var(--text-light);
-    }
-
-    .vc-controls {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .vc-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .vc-btn-mute { background: var(--cream-dark); }
-    .vc-btn-end  { background: #ffebee; }
-    .vc-btn-cam  { background: var(--cream-dark); }
-
-    .vc-btn:hover { transform: scale(1.08); }
-
-    /* Floating badge */
     .hero-badge {
       position: absolute;
-      top: -16px;
-      right: -16px;
-      background: var(--accent);
+      top: 0;
+      left: 0;
+      background: rgba(255, 248, 231, 0.96);
       color: var(--text-dark);
       font-size: 11px;
       font-weight: 700;
-      padding: 8px 14px;
-      border-radius: 100px;
-      box-shadow: var(--shadow-accent);
+      letter-spacing: 0.04em;
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: 0 14px 34px rgba(58, 64, 53, 0.12);
+      border: 1px solid rgba(255, 188, 59, 0.28);
       white-space: nowrap;
+      z-index: 2;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(255,255,255,0.62);
+      border-radius: 22px;
+      padding: 16px 18px;
+      box-shadow: 0 18px 44px rgba(58, 64, 53, 0.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 2;
+    }
+
+    .hero-floating-card-top {
+      top: 84px;
+      left: 0;
+      max-width: 220px;
+      transform: rotate(-5deg);
+    }
+
+    .hero-floating-card-bottom {
+      right: -4px;
+      bottom: 0;
+      max-width: 240px;
+      transform: rotate(4deg);
+    }
+
+    .hero-floating-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 8px;
+    }
+
+    .hero-floating-value {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-floating-meta {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-mid);
     }
 
     /* ============================================================
@@ -577,11 +535,22 @@
     ============================================================ */
     .benefits {
       padding: 100px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.08) 100%);
     }
 
     .section-header {
       text-align: center;
       margin-bottom: 60px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 28px 34px;
+      background: rgba(255, 251, 245, 0.36);
+      border: 1px solid rgba(255, 255, 255, 0.31);
+      border-radius: 28px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 14px 38px rgba(58, 64, 53, 0.08);
     }
 
     .section-title {
@@ -592,6 +561,7 @@
       color: var(--text-dark);
       line-height: 1.15;
       margin-bottom: 16px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.65);
     }
 
     .section-subtitle {
@@ -601,6 +571,7 @@
       max-width: 540px;
       margin: 0 auto;
       line-height: 1.7;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.58);
     }
 
     .benefits-grid {
@@ -688,7 +659,7 @@
     ============================================================ */
     .how {
       padding: 100px 0;
-      background: linear-gradient(180deg, var(--cream) 0%, var(--white) 50%, var(--cream) 100%);
+      background: linear-gradient(180deg, rgba(247,243,237,0.18) 0%, rgba(255,255,255,0.08) 50%, rgba(247,243,237,0.2) 100%);
     }
 
     .steps-grid {
@@ -713,6 +684,13 @@
       text-align: center;
       position: relative;
       z-index: 1;
+      background: rgba(255, 252, 247, 0.43);
+      border: 1px solid rgba(255, 255, 255, 0.29);
+      border-radius: 28px;
+      padding: 30px 24px 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 16px 40px rgba(58, 64, 53, 0.08);
     }
 
     .step-number {
@@ -749,12 +727,14 @@
       color: var(--text-dark);
       margin-bottom: 12px;
       letter-spacing: -0.01em;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.64);
     }
 
     .step-desc {
       font-size: 14px;
       color: var(--text-mid);
       line-height: 1.7;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.56);
     }
 
     /* ============================================================
@@ -762,6 +742,7 @@
     ============================================================ */
     .proof {
       padding: 100px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(247,243,237,0.1) 100%);
     }
 
     .proof-stats {
@@ -1323,6 +1304,16 @@
        MOBILE-FIRST RESPONSIVE
     ============================================================ */
     @media (max-width: 768px) {
+      body {
+        background-attachment: scroll, scroll;
+        background-position: center, 58% center;
+      }
+
+      .section-header {
+        padding: 22px 20px;
+        border-radius: 24px;
+      }
+
       .nav-cta { display: none; }
 
       .hero {
@@ -1351,17 +1342,34 @@
 
       .hero-visual {
         order: -1;
+        justify-content: center;
       }
 
-      .video-call-card {
-        max-width: 300px;
+      .hero-photo-wrap {
+        max-width: 360px;
+        padding: 18px 0 36px;
       }
 
       .hero-badge {
-        top: -12px;
-        right: -12px;
+        top: 2px;
+        left: 6px;
         font-size: 10px;
-        padding: 6px 10px;
+        padding: 8px 12px;
+      }
+
+      .hero-floating-card-top {
+        top: auto;
+        bottom: 16px;
+        left: 8px;
+        max-width: 190px;
+        transform: rotate(-4deg);
+      }
+
+      .hero-floating-card-bottom {
+        right: 8px;
+        bottom: -10px;
+        max-width: 190px;
+        transform: rotate(3deg);
       }
 
       .trust-bar-inner {
@@ -1387,6 +1395,7 @@
         grid-template-columns: auto 1fr;
         gap: 20px;
         align-items: start;
+        padding: 24px 20px;
       }
 
       .step-number {
@@ -1451,7 +1460,9 @@
     ============================================================ */
     .story {
       padding: 100px 0;
-      background: var(--white);
+      background:
+        radial-gradient(circle at top left, rgba(255,188,59,0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255,253,248,0.38) 0%, rgba(255,255,255,0.24) 100%);
     }
 
     .story-inner {
@@ -1459,6 +1470,16 @@
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: start;
+    }
+
+    .story-left {
+      background: rgba(255, 251, 246, 0.34);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 32px;
+      padding: 34px 36px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 18px 44px rgba(58, 64, 53, 0.08);
     }
 
     .story-left .section-label {
@@ -1473,6 +1494,7 @@
       color: var(--text-dark);
       line-height: 1.15;
       margin-bottom: 28px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.62);
     }
 
     .story-body {
@@ -1485,6 +1507,7 @@
       font-size: 15px;
       color: var(--text-mid);
       line-height: 1.8;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     }
 
     .story-body strong {
@@ -1498,25 +1521,108 @@
       font-weight: 700;
       color: var(--sage-dark);
       font-family: var(--font-head);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.58);
     }
 
     .story-right {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 28px;
+    }
+
+    .story-visual {
+      position: relative;
+      min-height: 520px;
+      padding: 12px 24px 18px 0;
+    }
+
+    .story-portrait-frame {
+      position: relative;
+      background: rgba(255,255,255,0.88);
+      border-radius: 30px;
+      padding: 14px;
+      box-shadow: 0 24px 60px rgba(58, 64, 53, 0.14);
+      transform: rotate(2deg);
+    }
+
+    .story-portrait {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .story-note {
+      position: absolute;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(125, 143, 116, 0.18);
+      border-radius: 20px;
+      box-shadow: 0 14px 34px rgba(58, 64, 53, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .story-note-top {
+      top: 28px;
+      left: -8px;
+      max-width: 220px;
+      padding: 16px 18px;
+      transform: rotate(-6deg);
+    }
+
+    .story-note-bottom {
+      right: 0;
+      bottom: 0;
+      max-width: 250px;
+      padding: 18px 20px;
+      background: linear-gradient(180deg, #fffaf0 0%, #fff4d8 100%);
+      transform: rotate(4deg);
+    }
+
+    .story-note-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 8px;
+    }
+
+    .story-note-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+
+    .story-note-kicker {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .story-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .trust-card {
-      background: var(--cream);
+      background: rgba(255,255,255,0.78);
       border-radius: var(--radius-md);
-      padding: 28px 28px 28px 24px;
-      border-left: 4px solid var(--sage);
+      padding: 26px 26px 24px;
+      border: 1px solid rgba(125, 143, 116, 0.14);
       transition: var(--transition);
+      box-shadow: var(--shadow-sm);
     }
 
     .trust-card:hover {
       box-shadow: var(--shadow-md);
-      transform: translateX(4px);
+      transform: translateY(-4px);
     }
 
     .trust-card-title {
@@ -1597,11 +1703,36 @@
       white-space: nowrap;
     }
 
-    /* Story mobile */
     @media (max-width: 768px) {
       .story-inner {
         grid-template-columns: 1fr;
         gap: 40px;
+      }
+
+      .story-left {
+        padding: 26px 20px;
+        border-radius: 26px;
+      }
+
+      .story-right {
+        order: -1;
+      }
+
+      .story-visual {
+        min-height: unset;
+        padding: 0 0 36px;
+      }
+
+      .story-note-top {
+        top: 14px;
+        left: 0;
+        max-width: 180px;
+      }
+
+      .story-note-bottom {
+        right: 0;
+        bottom: -10px;
+        max-width: 210px;
       }
 
       .trust-card:hover {
@@ -1677,39 +1808,25 @@
           </div>
         </div>
 
-        <!-- Right: Video call mockup -->
+        <!-- Right: Editorial photo collage -->
         <div class="hero-visual reveal reveal-delay-1">
-          <div class="video-call-card">
-            <div class="hero-badge">🔴 Live Lesson</div>
-
-            <div class="vc-header">
-              <div class="vc-status">
-                <div class="vc-dot" aria-hidden="true"></div>
-                In Session
-              </div>
-              <div class="vc-timer">25:34</div>
+          <div class="hero-photo-wrap">
+            <div class="hero-badge" data-i18n="hero_badge">Feels more like a conversation than a class</div>
+            <div class="hero-photo-frame">
+              <img
+                src="assets/images/hero-editorial.png"
+                alt="A learner practicing Korean during a live online lesson"
+                class="hero-photo"
+              />
             </div>
-
-            <div class="vc-screens" aria-hidden="true">
-              <div class="vc-screen vc-screen-tutor">
-                <span>👩‍🏫</span>
-                <div class="vc-screen-label">Minji (Seoul)</div>
-              </div>
-              <div class="vc-screen vc-screen-student">
-                <span>🙋‍♀️</span>
-                <div class="vc-screen-label">Anika (Jakarta)</div>
-              </div>
+            <div class="hero-floating-card hero-floating-card-top">
+              <p class="hero-floating-label" data-i18n="hero_card1_label">From your favorite scenes</p>
+              <p class="hero-floating-value">잠깐만요</p>
+              <p class="hero-floating-meta" data-i18n="hero_card1_meta">Turn K-drama lines into real-life Korean you can actually use.</p>
             </div>
-
-            <div class="vc-caption" aria-label="Current lesson phrase">
-              <div class="vc-caption-ko">오빠, 잠깐만요!</div>
-              <div class="vc-caption-en">"Wait a sec, oppa!" — from a K-drama scene</div>
-            </div>
-
-            <div class="vc-controls" aria-hidden="true">
-              <div class="vc-btn vc-btn-mute">🎤</div>
-              <div class="vc-btn vc-btn-end">📵</div>
-              <div class="vc-btn vc-btn-cam">📷</div>
+            <div class="hero-floating-card hero-floating-card-bottom">
+              <p class="hero-floating-label" data-i18n="hero_card2_label">What a lesson feels like</p>
+              <p class="hero-floating-meta" data-i18n="hero_card2_meta">Warm, live, personal guidance from a native Korean tutor who adapts to your pace.</p>
             </div>
           </div>
         </div>
@@ -1943,30 +2060,47 @@
           </div>
         </div>
 
-        <!-- Right: Trust Cards -->
+        <!-- Right: Photo + Trust Cards -->
         <div class="story-right">
-
-          <div class="trust-card reveal reveal-delay-1">
-            <h3 class="trust-card-title" data-i18n="trust_card1_title">🛡️ Wait — Is This Actually Real?</h3>
-            <p class="trust-card-body" data-i18n="trust_card1_body">
-              This isn't a weekend project. It's built by a team that's been running a language education business for <strong>8+ years</strong>. Real company. Real infrastructure. Real track record with <strong>thousands of students</strong>.
-            </p>
+          <div class="story-visual reveal reveal-delay-1">
+            <div class="story-portrait-frame">
+              <img
+                src="assets/images/story-tutor.png"
+                alt="A Korean tutor preparing lesson notes"
+                class="story-portrait"
+              />
+            </div>
+            <div class="story-note story-note-top">
+              <span class="story-note-label" data-i18n="story_note_label">What learners were missing</span>
+              <p class="story-note-body" data-i18n="story_note_body">A real person to talk to. Not another app. Not another course you forget in a week.</p>
+            </div>
+            <div class="story-note story-note-bottom">
+              <p class="story-note-kicker" data-i18n="story_note_kicker">Built on 8+ years of running live 1:1 tutoring operations, not on a trend.</p>
+            </div>
           </div>
 
-          <div class="trust-card reveal reveal-delay-2">
-            <h3 class="trust-card-title" data-i18n="trust_card2_title">💯 Don't Like It? Full Refund.</h3>
-            <p class="trust-card-body" data-i18n="trust_card2_body">
-              Your first lesson is risk-free. If it's not everything we promised, you get your money back — <strong>100%, no questions, no excuses</strong>. We'd rather lose money than lose your trust.
-            </p>
-          </div>
+          <div class="story-stack">
+            <div class="trust-card reveal reveal-delay-1">
+              <h3 class="trust-card-title" data-i18n="trust_card1_title">🛡️ Wait — Is This Actually Real?</h3>
+              <p class="trust-card-body" data-i18n="trust_card1_body">
+                This isn't a weekend project. It's built by a team that's been running a language education business for <strong>8+ years</strong>. Real company. Real infrastructure. Real track record with <strong>thousands of students</strong>.
+              </p>
+            </div>
 
-          <div class="trust-card reveal reveal-delay-3">
-            <h3 class="trust-card-title" data-i18n="trust_card3_title">🇰🇷 Real Koreans. Verified.</h3>
-            <p class="trust-card-body" data-i18n="trust_card3_body">
-              Every tutor is a <strong>verified native Korean speaker</strong> living in Korea. No non-native teachers pretending to be Korean. We interview and vet every single person before they teach their first lesson.
-            </p>
-          </div>
+            <div class="trust-card reveal reveal-delay-2">
+              <h3 class="trust-card-title" data-i18n="trust_card2_title">💯 Don't Like It? Full Refund.</h3>
+              <p class="trust-card-body" data-i18n="trust_card2_body">
+                Your first lesson is risk-free. If it's not everything we promised, you get your money back — <strong>100%, no questions, no excuses</strong>. We'd rather lose money than lose your trust.
+              </p>
+            </div>
 
+            <div class="trust-card reveal reveal-delay-3">
+              <h3 class="trust-card-title" data-i18n="trust_card3_title">🇰🇷 Real Koreans. Verified.</h3>
+              <p class="trust-card-body" data-i18n="trust_card3_body">
+                Every tutor is a <strong>verified native Korean speaker</strong> living in Korea. No non-native teachers pretending to be Korean. We interview and vet every single person before they teach their first lesson.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1988,7 +2122,7 @@
       <!-- Stats -->
       <div class="proof-stats">
         <div class="stat-card reveal">
-          <div class="stat-number"><span>500</span>+</div>
+          <div class="stat-number"><span id="waitlist-count">500</span>+</div>
           <div class="stat-label" data-i18n="stat1_label">Waitlist members</div>
         </div>
         <div class="stat-card reveal reveal-delay-1">
@@ -2123,12 +2257,9 @@
           <h3 class="form-title" data-i18n="form_title">Join the Waitlist 🇰🇷</h3>
           <p class="form-subtitle" data-i18n="form_subtitle">Takes 60 seconds. No payment required.</p>
 
-          <!-- The form posts to Google Forms (prefilled entry IDs are placeholders) -->
-          <!-- Formspree is set as the action for reliability -->
+          <!-- Waitlist form — submits to KAIP API -->
           <form
             id="waitlist-form"
-            action="https://formspree.io/f/PLACEHOLDER"
-            method="POST"
             novalidate
             aria-label="Waitlist signup form"
           >
@@ -2138,7 +2269,8 @@
             <input type="hidden" name="utm_campaign" id="f-utm-campaign" />
             <input type="hidden" name="utm_content"  id="f-utm-content" />
             <input type="hidden" name="utm_term"     id="f-utm-term" />
-            <input type="hidden" name="_subject"     value="New KOR MEET Waitlist Signup" />
+            <!-- Honeypot anti-spam field (hidden from real users) -->
+            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
 
             <div class="form-row">
               <div class="form-group">
@@ -2221,6 +2353,15 @@
               We'll reach out with your early access invite before anyone else.
               Keep an eye on your inbox — and tell a K-fan friend about KOR MEET.
             </p>
+            <a
+              id="survey-link"
+              href="https://forms.gle/xpvBZfbPAPJoZrss9"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-submit"
+              style="display:inline-block; margin-top:16px; text-decoration:none;"
+              data-i18n="survey_cta"
+            >Take a quick survey</a>
           </div>
         </div>
 
@@ -2296,6 +2437,11 @@
         hero_subtitle: '1:1 video lessons with <strong>native Korean tutors</strong>. Not AI. Not textbooks. Real conversations — using K-drama dialogue, K-pop lyrics, and the Korean they actually speak every day.',
         hero_cta: 'Join the Waitlist — Early Access Pricing',
         hero_social_proof: 'Join <strong>500+</strong> K-culture fans on the waitlist',
+        hero_badge: 'Feels more like a conversation than a class',
+        hero_card1_label: 'From your favorite scenes',
+        hero_card1_meta: 'Turn K-drama lines into real-life Korean you can actually use.',
+        hero_card2_label: 'What a lesson feels like',
+        hero_card2_meta: 'Warm, live, personal guidance from a native Korean tutor who adapts to your pace.',
 
         trust_native: 'Native Korean tutors only',
         trust_curriculum: 'K-drama &amp; K-pop curriculum',
@@ -2335,6 +2481,9 @@
         story_p5: '"Okay but is this legit, or just some random dude with a landing page?" Fair question. I run a <strong>real education company</strong> with real employees, real tutors, and real students who\'ve been with us for years — not months, <strong>years</strong>. And to remove any doubt: your first lesson comes with a <strong>100% money-back guarantee</strong>. If you don\'t love it, you don\'t pay. Period.',
         story_p6: 'KOR MEET is what happens when someone who\'s been in language education for a decade finally builds the Korean learning service that should have existed years ago. The waitlist is open. Your future Korean tutor is ready. The only question is — <strong>are you?</strong>',
         story_signoff: '👋 — TJ, Founder of KOR MEET',
+        story_note_label: 'What learners were missing',
+        story_note_body: 'A real person to talk to. Not another app. Not another course you forget in a week.',
+        story_note_kicker: 'Built on 8+ years of running live 1:1 tutoring operations, not on a trend.',
         trust_card1_title: '🛡️ Wait — Is This Actually Real?',
         trust_card1_body: 'This isn\'t a weekend project. It\'s built by a team that\'s been running a language education business for <strong>8+ years</strong>. Real company. Real infrastructure. Real track record with <strong>thousands of students</strong>.',
         trust_card2_title: '💯 Don\'t Like It? Full Refund.',
@@ -2387,6 +2536,7 @@
 
         success_title: "You're on the list!",
         success_body: "We'll reach out with your early access invite before anyone else. Keep an eye on your inbox — and tell a K-fan friend about KOR MEET.",
+        survey_cta: 'Take a quick survey',
 
         footer_tagline: 'Learn Korean, Live Korean',
         footer_copy: '© 2026 KOR MEET. All rights reserved.',
@@ -2399,6 +2549,11 @@
         hero_subtitle: 'เรียนผ่านวิดีโอคอล 1:1 กับ<strong>ติวเตอร์เจ้าของภาษาเกาหลี</strong> ไม่ใช่ AI ไม่ใช่ตำรา แต่เป็นการสนทนาจริง — ผ่านบทพูดจาก K-drama เนื้อเพลง K-pop และภาษาที่คนเกาหลีใช้จริงๆ ทุกวัน',
         hero_cta: 'จองคิวก่อนเปิดตัว — ราคา Early Access',
         hero_social_proof: 'ร่วมกับ <strong>500+</strong> แฟน K-culture ที่จองที่นั่งแล้ว',
+        hero_badge: 'ให้ความรู้สึกเหมือนบทสนทนาจริง มากกว่าคลาสเรียน',
+        hero_card1_label: 'เริ่มจากฉากที่คุณชอบ',
+        hero_card1_meta: 'เปลี่ยนประโยคจาก K-drama ให้กลายเป็นภาษาเกาหลีที่คุณใช้ได้จริง',
+        hero_card2_label: 'บรรยากาศของบทเรียน',
+        hero_card2_meta: 'อบอุ่น สดจริง และปรับตามจังหวะของคุณ โดยติวเตอร์เจ้าของภาษา',
 
         trust_native: 'ติวเตอร์เจ้าของภาษาเกาหลีเท่านั้น',
         trust_curriculum: 'หลักสูตร K-drama &amp; K-pop',
@@ -2438,6 +2593,9 @@
         story_p5: '"โอเค แต่นี่มันจริงไหม หรือแค่คนสุ่มทำเว็บขึ้นมา?" คำถามที่สมเหตุสมผลมาก ฉันรัน <strong>บริษัทการศึกษาจริงๆ</strong> ที่มีพนักงานจริง ติวเตอร์จริง และนักเรียนที่อยู่กับเรามาเป็นปีๆ — ไม่ใช่แค่เดือน แต่ <strong>ปี</strong> และเพื่อตัดข้อสงสัยทั้งหมด: บทเรียนแรกของคุณมาพร้อม <strong>การรับประกันคืนเงิน 100%</strong> ถ้าไม่ชอบ ไม่ต้องจ่าย จบ',
         story_p6: 'KOR MEET คือสิ่งที่เกิดขึ้นเมื่อคนที่อยู่ในวงการสอนภาษามานานกว่าทศวรรษ ลงมือสร้างบริการเรียนภาษาเกาหลีที่ควรจะมีอยู่มานานแล้ว Waitlist เปิดแล้ว ติวเตอร์เกาหลีในอนาคตของคุณพร้อมแล้ว คำถามเดียวที่เหลือคือ — <strong>คุณพร้อมหรือยัง?</strong>',
         story_signoff: '👋 — TJ, ผู้ก่อตั้ง KOR MEET',
+        story_note_label: 'สิ่งที่ผู้เรียนขาดมาตลอด',
+        story_note_body: 'คนจริงๆ ที่คุยด้วยได้ ไม่ใช่อีกหนึ่งแอป และไม่ใช่คอร์สที่ลืมในหนึ่งสัปดาห์',
+        story_note_kicker: 'สร้างบนประสบการณ์รันระบบติว 1:1 แบบไลฟ์มามากกว่า 8 ปี ไม่ใช่แค่กระแส',
         trust_card1_title: '🛡️ เดี๋ยวก่อน — นี่มันจริงเหรอ?',
         trust_card1_body: 'นี่ไม่ใช่โปรเจกต์ทำวันสองวัน สร้างโดยทีมที่รันธุรกิจการศึกษาด้านภาษามากกว่า <strong>8 ปีแล้ว</strong> บริษัทจริง โครงสร้างพื้นฐานจริง และผลงานพิสูจน์แล้วจาก <strong>นักเรียนนับพันคน</strong>',
         trust_card2_title: '💯 ไม่ชอบ? คืนเงินเต็มจำนวน',
@@ -2490,6 +2648,7 @@
 
         success_title: 'คุณอยู่ในรายชื่อแล้ว!',
         success_body: 'เราจะติดต่อกลับพร้อมลิงก์ early access ก่อนใคร คอยเช็กกล่องจดหมาย — และบอกเพื่อนที่ชอบ K-culture ด้วยนะ',
+        survey_cta: 'ทำแบบสอบถามสั้นๆ',
 
         footer_tagline: 'เรียนเกาหลี ใช้ชีวิตแบบเกาหลี',
         footer_copy: '© 2026 KOR MEET. สงวนลิขสิทธิ์ทั้งหมด',
@@ -2502,6 +2661,11 @@
         hero_subtitle: 'Les video 1:1 dengan <strong>tutor asli Korea</strong>. Bukan AI. Bukan buku teks. Percakapan nyata — pakai dialog K-drama, lirik K-pop, dan bahasa Korea yang mereka pakai sehari-hari.',
         hero_cta: 'Daftar Waitlist — Harga Early Access',
         hero_social_proof: 'Bergabung dengan <strong>500+</strong> fans K-culture yang sudah daftar',
+        hero_badge: 'Rasanya lebih kayak ngobrol daripada ikut kelas',
+        hero_card1_label: 'Mulai dari adegan favoritmu',
+        hero_card1_meta: 'Ubah dialog K-drama jadi bahasa Korea nyata yang benar-benar kepakai.',
+        hero_card2_label: 'Rasa sebuah les',
+        hero_card2_meta: 'Hangat, live, dan personal bersama tutor asli Korea yang menyesuaikan dengan pace-mu.',
 
         trust_native: 'Tutor asli Korea only',
         trust_curriculum: 'Kurikulum K-drama &amp; K-pop',
@@ -2541,6 +2705,9 @@
         story_p5: '"Oke tapi ini beneran legit, atau cuma orang random yang bikin landing page?" Pertanyaan yang wajar. Aku jalanin <strong>perusahaan pendidikan beneran</strong> dengan karyawan beneran, tutor beneran, dan siswa yang udah bareng kita bertahun-tahun — bukan berbulan-bulan, tapi <strong>bertahun-tahun</strong>. Dan buat hapus semua keraguan: les pertama kamu dilindungi <strong>garansi uang kembali 100%</strong>. Kalau nggak suka, nggak perlu bayar. Titik.',
         story_p6: 'KOR MEET adalah yang terjadi ketika orang yang sudah lebih dari satu dekade di dunia pendidikan bahasa akhirnya membangun layanan belajar Korea yang harusnya sudah ada dari dulu. Waitlist sudah dibuka. Tutor Korea masa depanmu sudah siap. Satu-satunya pertanyaan adalah — <strong>kamu siap?</strong>',
         story_signoff: '👋 — TJ, Founder KOR MEET',
+        story_note_label: 'Yang kurang selama ini',
+        story_note_body: 'Seseorang yang nyata untuk diajak ngobrol. Bukan aplikasi lain. Bukan kursus yang kamu lupakan seminggu kemudian.',
+        story_note_kicker: 'Dibangun dari pengalaman 8+ tahun menjalankan tutoring live 1:1, bukan sekadar ikut tren.',
         trust_card1_title: '🛡️ Sebentar — Ini Beneran Nyata?',
         trust_card1_body: 'Ini bukan proyek akhir pekan. Dibangun oleh tim yang sudah jalanin bisnis pendidikan bahasa selama <strong>8+ tahun</strong>. Perusahaan nyata. Infrastruktur nyata. Track record nyata dengan <strong>ribuan siswa</strong>.',
         trust_card2_title: '💯 Nggak Suka? Uang Kembali Penuh.',
@@ -2593,6 +2760,7 @@
 
         success_title: 'Kamu sudah masuk daftar!',
         success_body: 'Kita bakal hubungi kamu dengan undangan early access sebelum siapa pun. Pantau terus inbox-mu — dan ajak teman fans K-culture kamu juga ya!',
+        survey_cta: 'Isi survei singkat',
 
         footer_tagline: 'Belajar Korea, Hidup Ala Korea',
         footer_copy: '© 2026 KOR MEET. Semua hak dilindungi.',
@@ -2692,7 +2860,21 @@
       }
     })();
 
-    // ── Form submission (Formspree AJAX + Google Forms backup) ───
+    // ── Waitlist count from KAIP API ────────────────────────────
+    (function fetchWaitlistCount() {
+      const countEl = document.getElementById('waitlist-count');
+      if (!countEl) return;
+      fetch('https://soo-edu.com/api/v1/marketing/waitlist/count?project=kormeet')
+        .then(function(res) { return res.ok ? res.json() : null; })
+        .then(function(data) {
+          if (data && typeof data.count === 'number') {
+            countEl.textContent = data.count;
+          }
+        })
+        .catch(function() { /* keep default value on error */ });
+    })();
+
+    // ── Form submission (KAIP API) ────────────────────────────────
     const form    = document.getElementById('waitlist-form');
     const success = document.getElementById('form-success');
     const submitBtn = document.getElementById('submit-btn');
@@ -2701,7 +2883,7 @@
     function validateForm() {
       const required = form.querySelectorAll('[required]');
       let valid = true;
-      required.forEach((el) => {
+      required.forEach(function(el) {
         el.style.borderColor = '';
         if (!el.value.trim()) {
           el.style.borderColor = '#e53935';
@@ -2726,39 +2908,56 @@
       submitBtn.textContent = 'Submitting…';
       submitBtn.disabled = true;
 
-      const data = new FormData(form);
+      // Build JSON payload for KAIP API
+      const params = new URLSearchParams(window.location.search);
+      const payload = {
+        project:      'kormeet',
+        email:        (document.getElementById('f-email') || {}).value || '',
+        name:         (document.getElementById('f-name')  || {}).value || '',
+        country:      (document.getElementById('f-country') || {}).value || '',
+        utm_source:   params.get('utm_source')   || '',
+        utm_medium:   params.get('utm_medium')   || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        referrer:     document.referrer || '',
+        // honeypot
+        website:      (form.querySelector('[name="website"]') || {}).value || '',
+      };
 
+      let res;
       try {
-        const res = await fetch(form.action, {
+        res = await fetch('https://soo-edu.com/api/v1/marketing/waitlist', {
           method: 'POST',
-          body: data,
-          headers: { Accept: 'application/json' },
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         });
-
-        if (res.ok) {
-          // Track conversion in GA4
-          if (typeof gtag === 'function') {
-            gtag('event', 'waitlist_signup', {
-              event_category: 'conversion',
-              country: document.getElementById('f-country').value,
-              korean_level: document.getElementById('f-level').value,
-              motivation: document.getElementById('f-reason').value,
-            });
-          }
-
-          // Show success state
-          form.style.display = 'none';
-          success.style.display = 'block';
-        } else {
-          throw new Error('Server error');
-        }
-      } catch {
-        // Fallback: open Google Forms in new tab
-        const gfUrl = new URL('https://docs.google.com/forms/d/e/PLACEHOLDER/formResponse');
+      } catch (networkErr) {
+        // Network failure
         submitBtn.textContent = 'Join the Waitlist 🇰🇷';
         submitBtn.disabled = false;
-        alert('Something went wrong with our form. Opening a backup form — please submit there. Thank you!');
-        window.open(gfUrl.toString(), '_blank');
+        alert('Network error. Please check your connection and try again.');
+        return;
+      }
+
+      if (res.ok) {
+        // Track conversion in GA4
+        if (typeof gtag === 'function') {
+          gtag('event', 'waitlist_signup', { project: 'kormeet' });
+        }
+        // Show success state
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else if (res.status === 409) {
+        // Already registered
+        submitBtn.textContent = 'Join the Waitlist 🇰🇷';
+        submitBtn.disabled = false;
+        const emailEl = document.getElementById('f-email');
+        if (emailEl) emailEl.style.borderColor = '#e53935';
+        alert('이미 등록된 이메일입니다. (This email is already on the waitlist.)');
+      } else {
+        // Other server errors (422, 429, 500, …)
+        submitBtn.textContent = 'Join the Waitlist 🇰🇷';
+        submitBtn.disabled = false;
+        alert('Something went wrong. Please try again in a moment.');
       }
     });
 
